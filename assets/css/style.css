@@ -1,0 +1,25 @@
+/* Custom tab colors */
+.nav-pills .nav-link {
+	background-color: #f3f6fa; /* light neutral background */
+	margin: 0 5px;
+    border-radius: 10px;
+	transition: all 0.2s ease-in-out;
+}
+
+.nav-pills .nav-link:hover {
+	background-color: #e2e6ea;
+	color: #000;
+}
+
+.nav-pills .nav-link.active {
+	background-color: #53B656; /* Bootstrap blue */
+	color: #fff;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 767.98px) {
+  #canteen-tabs .nav-link {
+    margin-bottom: 8px;
+    margin-right: 8px;
+  }
+}

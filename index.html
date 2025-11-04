@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Encontre as refeições de hoje nas cantinas da Universidade de Aveiro.">
+	<meta name="author" content="João Nuno Valente">
+	<link rel="shortcut icon" href="assets/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+	<!-- FontAwesome -->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="assets/css/devdesk.css">
+	<link id="my-style" rel="stylesheet" href="assets/css/style.css">
+
+	<title>Cantinas.pt</title>
+</head>
+
+<body>
+	<div class="page-header-wrapper">
+		<div class="page-header-bg-pattern-holder">
+			<div class="bg-pattern-top"></div>
+			<div class="bg-pattern-bottom"></div>
+		</div>
+
+		<div class="page-heading-holder">
+			<div class="container text-center">
+				<h1 class="page-heading mt-5 mb-3">Cantinas.pt</h1>
+
+				<div class="page-heading-sub single-col-max mx-auto">
+					<div class="help-search-intro mb-1">
+						Encontre as refeições disponíveis hoje nas cantinas da Universidade de Aveiro.
+					</div>
+					<div class="help-search-main pt-3 d-block mx-auto">
+						<!-- Tabs -->
+						<ul class="nav nav-pills justify-content-center mt-4 mb-4" id="canteen-tabs" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="tab-santiago" data-bs-toggle="pill"
+									data-bs-target="#pane-santiago" type="button" role="tab"
+									aria-controls="pane-santiago" aria-selected="true">Santiago</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-estga" data-bs-toggle="pill"
+									data-bs-target="#pane-estga" type="button" role="tab" aria-controls="pane-estga"
+									aria-selected="false">ESTGA</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-crasto" data-bs-toggle="pill"
+									data-bs-target="#pane-crasto" type="button" role="tab" aria-controls="pane-crasto"
+									aria-selected="false">Crasto</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-restaurante" data-bs-toggle="pill"
+									data-bs-target="#pane-restaurante" type="button" role="tab"
+									aria-controls="pane-restaurante" aria-selected="false">Restaurante
+									Universitário</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-grelhados" data-bs-toggle="pill"
+									data-bs-target="#pane-grelhados" type="button" role="tab"
+									aria-controls="pane-grelhados" aria-selected="false">Grelhados</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Seção do Menu -->
+	<section class="help-featured-section theme-section">
+		<div class="container">
+			<div class="tab-content" id="canteen-tabContent">
+
+				<!-- Santiago -->
+				<div class="tab-pane fade show active" id="pane-santiago" role="tabpanel"
+					aria-labelledby="tab-santiago">
+					<div class="row align-content-stretch">
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Almoço</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de almoço do Santiago.</p>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Jantar</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de jantar do Santiago.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ESTGA -->
+				<div class="tab-pane fade" id="pane-estga" role="tabpanel" aria-labelledby="tab-estga">
+					<div class="row align-content-stretch">
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Almoço</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de almoço da ESTGA.</p>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Jantar</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de jantar da ESTGA.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Crasto -->
+				<div class="tab-pane fade" id="pane-crasto" role="tabpanel" aria-labelledby="tab-crasto">
+					<div class="row align-content-stretch">
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3">Almoço</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de almoço do Crasto.</p>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Jantar</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de jantar do Crasto.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Restaurante Universitário -->
+				<div class="tab-pane fade" id="pane-restaurante" role="tabpanel" aria-labelledby="tab-restaurante">
+					<div class="row align-content-stretch">
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Almoço</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de almoço do Restaurante Universitário.</p>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Jantar</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de jantar do Restaurante Universitário.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Grelhados -->
+				<div class="tab-pane fade" id="pane-grelhados" role="tabpanel" aria-labelledby="tab-grelhados">
+					<div class="row align-content-stretch">
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Almoço</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de almoço dos Grelhados.</p>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 py-4 p-md-4">
+							<div class="item-inner shadow rounded-4 p-4 h-100">
+								<h3 class="item-heading mb-3"></i>Jantar</h3>
+								<p class="item-desc mb-0">Exemplos de pratos do menu de jantar dos Grelhados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- JS -->
+	<script src="assets/plugins/popper.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Meu JS -->
+	<script src="assets/js/script.js"></script>
+</body>
+
+</html>
