@@ -1,104 +1,143 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const today = new Date().toISOString().split("T")[0];
-    const url = `https://little-lab-21a3.long-wildflower-846d.workers.dev/?date=${today}`;
+  const today = new Date().toISOString().split("T")[0];
+  const url = `https://little-lab-21a3.long-wildflower-846d.workers.dev/?date=${today}`;
 
-    const canteenMap = {
-        "Santiago": "Santiago",
-        "ESTGA": "ESTGA",
-        "Crasto": "Crasto",
-        "Restaurante Universitário": "Restaurante Universitário",
-        "Grelhados": "Grelhados"
-    };
+  const canteenMap = {
+    "Santiago": "Santiago",
+    "ESTGA": "ESTGA",
+    "Crasto": "Crasto",
+    "Restaurante Universitário": "Restaurante Universitário",
+    "Grelhados": "Grelhados"
+  };
 
-    function groupByPeriod(data) {
-        return data.reduce((acc, item) => {
-            const key = item.Periodo;
-            if (!acc[key]) acc[key] = [];
-            acc[key].push(item);
-            return acc;
-        }, {});
+  // Animate only while loading
+  const loadingIntervals = new Map();
+
+  document.querySelectorAll(".item-desc").forEach(el => {
+    if (el.textContent.includes("A carregar a ementa de hoje")) {
+      let dots = 1;
+      const interval = setInterval(() => {
+        el.textContent = "A carregar a ementa de hoje" + ".".repeat(dots);
+        dots = (dots % 3) + 1;
+      }, 800);
+      loadingIntervals.set(el, interval);
+    }
+  });
+
+  function stopLoadingAnimation(el) {
+    if (loadingIntervals.has(el)) {
+      clearInterval(loadingIntervals.get(el));
+      loadingIntervals.delete(el);
+    }
+  }
+
+  function groupByPeriod(data) {
+    return data.reduce((acc, item) => {
+      const key = item.Periodo;
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(item);
+      return acc;
+    }, {});
+  }
+
+  function capitalizeFirstLetter(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
+  function generateMenuHTML(items) {
+    if (!items || items.length === 0) {
+      return "<p class='item-desc mb-0'>Não existem dados disponíveis.</p>";
     }
 
-    function capitalizeFirstLetter(str) {
-        if (!str) return "";
-        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    }
+    const groupedByNome = items.reduce((acc, item) => {
+      acc[item.Nome] = item.Componentes;
+      return acc;
+    }, {});
 
-    function generateMenuHTML(items) {
-        if (!items || items.length === 0) {
-            return "<p class='item-desc mb-0'>Não existes dados disponíveis.</p>";
+    let html = "";
+
+    const allSoups = [];
+    Object.values(groupedByNome).forEach(componentes => {
+      componentes.forEach(c => {
+        if (c.TipoString === "Sopa") {
+          const soupName = capitalizeFirstLetter(c.Nome);
+          if (!allSoups.includes(soupName)) {
+            allSoups.push(soupName);
+          }
         }
+      });
+    });
 
-        // Group by Nome (e.g., PRATO CARNE, PRATO PEIXE, etc.)
-        const groupedByNome = items.reduce((acc, item) => {
-            acc[item.Nome] = item.Componentes;
-            return acc;
-        }, {});
-
-        let html = "";
-
-        // Collect all soups once from all groups, capitalize first letter and unique
-        const allSoups = [];
-
-        Object.values(groupedByNome).forEach(componentes => {
-            componentes.forEach(c => {
-                if (c.TipoString === "Sopa") {
-                    const soupName = capitalizeFirstLetter(c.Nome);
-                    if (!allSoups.includes(soupName)) {
-                        allSoups.push(soupName);
-                    }
-                }
-            });
-        });
-
-        // Output soups once at the top if any
-        if (allSoups.length > 0) {
-            html += `<p><strong>Sopa</strong>: ${allSoups.join("; ")}</p>`;
-        }
-
-        // Then output other categories grouped by Nome
-        Object.entries(groupedByNome).forEach(([nome, componentes]) => {
-            let typeLabel = null;
-            const nomeUpper = nome.toUpperCase();
-
-            if (nomeUpper.includes("CARNE")) typeLabel = "Carne";
-            else if (nomeUpper.includes("PEIXE")) typeLabel = "Peixe";
-            else if (nomeUpper.includes("DIETA")) typeLabel = "Dieta";
-            else if (nomeUpper.includes("VEGETARIANO")) typeLabel = "Vegetariano";
-            else typeLabel = "Prato";
-
-            const pratos = componentes.filter(c => c.TipoString === "Prato");
-            if (pratos.length > 0) {
-                html += `<p><strong>${typeLabel}</strong>: ${pratos.map(p => capitalizeFirstLetter(p.Nome)).join("; ")}</p>`;
-            }
-        });
-
-        return html;
+    if (allSoups.length > 0) {
+      html += `<p><strong>Sopa</strong>: ${allSoups.join("; ")}</p>`;
     }
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
-                // Filter meals belonging to this canteen
-                const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
+    Object.entries(groupedByNome).forEach(([nome, componentes]) => {
+      let typeLabel;
+      const nomeUpper = nome.toUpperCase();
 
-                // Group by "Almoço" and "Jantar"
-                const grouped = groupByPeriod(canteenMeals);
+      if (nomeUpper.includes("CARNE")) typeLabel = "Carne";
+      else if (nomeUpper.includes("PEIXE")) typeLabel = "Peixe";
+      else if (nomeUpper.includes("DIETA")) typeLabel = "Dieta";
+      else if (nomeUpper.includes("VEGETARIANO")) typeLabel = "Vegetariano";
+      else typeLabel = "Prato";
 
-                // Special case for Restaurante Universitário pane ID
-                const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+      const pratos = componentes.filter(c => c.TipoString === "Prato");
+      if (pratos.length > 0) {
+        html += `<p><strong>${typeLabel}</strong>: ${pratos.map(p => capitalizeFirstLetter(p.Nome)).join("; ")}</p>`;
+      }
+    });
 
-                // Fill in the Lunch section
-                const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
-                if (lunchDiv) lunchDiv.innerHTML = generateMenuHTML(grouped["Almoço"]);
+    return html;
+  }
 
-                // Fill in the Dinner section
-                const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
-                if (dinnerDiv) dinnerDiv.innerHTML = generateMenuHTML(grouped["Jantar"]);
-            });
-        })
-        .catch(err => {
-            console.error("Erro a carregar os ménus:", err);
-        });
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    // Handle empty or invalid data
+    if (!Array.isArray(data) || data.length === 0) {
+      document.querySelectorAll(".item-desc").forEach(el => {
+        stopLoadingAnimation(el);
+        el.textContent = "Não existem dados disponíveis.";
+      });
+      console.warn("Sem dados recebidos da API.");
+      return;
+    }
+
+    Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
+      // Filter meals belonging to this canteen
+      const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
+
+      // Group by "Almoço" and "Jantar"
+      const grouped = groupByPeriod(canteenMeals);
+
+      // Determine correct pane id
+      const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+
+      // Selectors for lunch and dinner
+      const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
+      const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
+
+      // Fill lunch section
+      if (lunchDiv) {
+        stopLoadingAnimation(lunchDiv);
+        lunchDiv.innerHTML = generateMenuHTML(grouped["Almoço"]);
+      }
+
+      // Fill dinner section
+      if (dinnerDiv) {
+        stopLoadingAnimation(dinnerDiv);
+        dinnerDiv.innerHTML = generateMenuHTML(grouped["Jantar"]);
+      }
+    });
+  })
+  .catch(err => {
+    console.error("Erro ao carregar as ementas:", err);
+    document.querySelectorAll(".item-desc").forEach(el => {
+      stopLoadingAnimation(el);
+      el.textContent = "Erro ao carregar os dados.";
+    });
+  });
 });
+
