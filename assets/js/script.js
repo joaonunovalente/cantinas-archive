@@ -77,11 +77,16 @@ document.addEventListener("DOMContentLoaded", () => {
       let typeLabel;
       const nomeUpper = nome.toUpperCase();
 
+      let isOpcao = nomeUpper.includes("(OPÇÃO)");
+
       if (nomeUpper.includes("CARNE")) typeLabel = "Carne";
       else if (nomeUpper.includes("PEIXE")) typeLabel = "Peixe";
       else if (nomeUpper.includes("DIETA")) typeLabel = "Dieta";
       else if (nomeUpper.includes("VEGETARIANO")) typeLabel = "Vegetariano";
       else typeLabel = "Prato";
+
+      if (isOpcao) typeLabel += " (opção)";
+
 
       const pratos = componentes.filter(c => c.TipoString === "Prato");
       if (pratos.length > 0) {
