@@ -24,3 +24,29 @@
     margin-right: 16px;
   }
 }
+
+.site-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* prevent mobile stacking */
+.site-logo-link {
+  flex-wrap: nowrap;
+}
+
+/* force favicon to stay small and avoid stretching */
+.logo-icon {
+  width: 20px;      /* adjust size to taste */
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;   /* stops shrinking in tight spaces */
+}
+
+.site-logo-link h5 {
+  margin: 0;
+  color: white;
+}
