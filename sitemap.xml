@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
-  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
     <loc>https://cantinas.pt/</loc>
-    <lastmod>2025-11-30T16:18:00+00:00</lastmod>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
   </url>
+
+  <url>
+    <loc>https://cantinas.pt/santiago</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://cantinas.pt/crasto</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://cantinas.pt/grelhados</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://cantinas.pt/estga</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://cantinas.pt/restaurante-universitario</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
 </urlset>
