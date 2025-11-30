@@ -34,45 +34,50 @@
 
 <body>
 	<div class="page-header-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg">
+				<div class="site-logo me-2">
+					<a class="navbar-nav" href="index.html">
+						<h2 style="color: white;">Cantinas.pt</h2>
+						<!-- <img class="logo-icon" src="favicon.ico" alt="logo">      -->
+					</a>
+				</div><!--//site-logo-->
+
+
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span> </span>
+					<span> </span>
+					<span> </span>
+				</button>
+
+				<div class="collapse navbar-collapse ms-auto" id="navigation">
+
+					<ul class="navbar-nav ms-auto align-items-lg-center">
+						<li class="nav-item me-lg-4">
+							<a class="nav-link" href="/santiago.html">Santiago</a>
+						</li>
+						<li class="nav-item me-lg-4">
+							<a class="nav-link" href="/crasto.html">Crasto</a>
+						</li>
+						<li class="nav-item me-lg-4">
+							<a class="nav-link" href="/grelhados.html">Grelhados</a>
+						</li>
+						<li class="nav-item me-lg-4">
+							<a class="nav-link" href="/estga.html">ESTGA</a>
+						</li>
+						<li class="nav-item me-lg-4">
+							<a class="nav-link" href="/restaurante-universitario.html">Restaurante Universitário</a>
+						</li>
+					</ul><!--//navbar-nav-->
+
+				</div>
+			</nav>
+		</div><!--//container-->		
 		<div class="page-heading-holder">
 			<div class="container text-center">
-				<h1 class="page-heading mt-5 mb-3">Cantinas.pt</h1>
-				<div class="page-heading-sub single-col-max mx-auto">
-					<div class="help-search-intro mb-1">
-						Encontre as refeições disponíveis hoje nos refeitórios da Universidade de Aveiro.
-					</div>
-					<div class="help-search-main pt-3 d-block mx-auto">
-						<!-- Tabs -->
-						<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs" role="tablist">
-							<li class="nav-item" role="presentation">
-								<button class="nav-link active" id="tab-santiago" data-bs-toggle="pill"
-									data-bs-target="#pane-santiago" type="button" role="tab"
-									aria-controls="pane-santiago" aria-selected="true">Santiago</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link" id="tab-crasto" data-bs-toggle="pill"
-									data-bs-target="#pane-crasto" type="button" role="tab" aria-controls="pane-crasto"
-									aria-selected="false">Crasto</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link" id="tab-grelhados" data-bs-toggle="pill"
-									data-bs-target="#pane-grelhados" type="button" role="tab"
-									aria-controls="pane-grelhados" aria-selected="false">Grelhados</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link" id="tab-estga" data-bs-toggle="pill"
-									data-bs-target="#pane-estga" type="button" role="tab" aria-controls="pane-estga"
-									aria-selected="false">ESTGA</button>
-							</li>
-							<li class="nav-item" role="presentation">
-								<button class="nav-link" id="tab-restaurante" data-bs-toggle="pill"
-									data-bs-target="#pane-restaurante" type="button" role="tab"
-									aria-controls="pane-restaurante" aria-selected="false">Restaurante
-									Universitário</button>
-							</li>
-						</ul>
-					</div>
-				</div>
+				<h1 class="page-heading mt-4 mb-5">Santiago</h1>
 			</div>
 		</div>
 	</div>
@@ -85,78 +90,6 @@
 				<!-- Santiago -->
 				<div class="tab-pane fade show active" id="pane-santiago" role="tabpanel"
 					aria-labelledby="tab-santiago">
-					<div class="row align-content-stretch">
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Almoço</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Jantar</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Crasto -->
-				<div class="tab-pane fade" id="pane-crasto" role="tabpanel" aria-labelledby="tab-crasto">
-					<div class="row align-content-stretch">
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Almoço</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Jantar</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Grelhados -->
-				<div class="tab-pane fade" id="pane-grelhados" role="tabpanel" aria-labelledby="tab-grelhados">
-					<div class="row align-content-stretch">
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Almoço</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Jantar</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- ESTGA -->
-				<div class="tab-pane fade" id="pane-estga" role="tabpanel" aria-labelledby="tab-estga">
-					<div class="row align-content-stretch">
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Almoço</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-						<div class="col-12 col-md-6 py-4 p-md-4">
-							<div class="item-inner shadow rounded-4 p-4 h-100">
-								<h2 class="item-heading mb-3">Jantar</h2>
-								<p class="item-desc mb-0">A carregar a ementa de hoje...</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Restaurante Universitário -->
-				<div class="tab-pane fade" id="pane-restaurante" role="tabpanel" aria-labelledby="tab-restaurante">
 					<div class="row align-content-stretch">
 						<div class="col-12 col-md-6 py-4 p-md-4">
 							<div class="item-inner shadow rounded-4 p-4 h-100">
