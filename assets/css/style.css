@@ -2,7 +2,7 @@
 .nav-pills .nav-link {
 	background-color: #f3f6fa; /* light neutral background */
 	margin: 0 5px;
-    border-radius: 10px;
+  border-radius: 10px;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -17,10 +17,10 @@
 	box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991px) {
   #canteen-tabs .nav-link {
     margin-bottom: 8px;
-	margin-top: 8px;
+	  margin-top: 8px;
     margin-right: 16px;
   }
 }
