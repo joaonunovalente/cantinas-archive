@@ -11,12 +11,17 @@
   </url>
 
   <url>
-    <loc>https://cantinas.pt/horarios</loc>
+    <loc>https://cantinas.pt/hoje</loc>
     <lastmod>2025-11-30T20:32:05+00:00</lastmod>
   </url>
 
   <url>
-    <loc>https://cantinas.pt/precario</loc>
+    <loc>https://cantinas.pt/amanha</loc>
+    <lastmod>2025-11-30T20:32:05+00:00</lastmod>
+  </url>
+
+  <url>
+    <loc>https://cantinas.pt/horarios-precario</loc>
     <lastmod>2025-11-30T20:32:05+00:00</lastmod>
   </url>
 
