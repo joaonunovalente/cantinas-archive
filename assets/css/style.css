@@ -28,9 +28,16 @@
 .site-logo-link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.logo-circle {
+  width: 10px;            /* make them smaller */
+  height: 10px;
+  object-fit: cover;
+  border-radius: 50%;     /* perfect circle */
 }
 
 .site-logo-link h5 {
@@ -47,3 +54,4 @@
   border-bottom-color: #53B656;          /* only change color */
   color: white !important;
 }
+
