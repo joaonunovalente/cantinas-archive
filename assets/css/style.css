@@ -47,3 +47,8 @@
   border-bottom-color: #53B656;          /* only change color */
   color: white !important;
 }
+
+
+.contact-title {
+  text-align: center;
+}
