@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Grelhados": "Grelhados"
   };
 
-  // Animate only while loading
+  // Animate "loading..." dots
   const loadingIntervals = new Map();
 
   document.querySelectorAll(".item-desc").forEach(el => {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateMenuHTML(items) {
     if (!items || items.length === 0) {
-      return "<p class='item-desc mb-0'>Não existem dados disponíveis.</p>";
+      return "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
     }
 
     const groupedByNome = items.reduce((acc, item) => {
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let html = "";
 
+    // Collect soups
     const allSoups = [];
     Object.values(groupedByNome).forEach(componentes => {
       componentes.forEach(c => {
@@ -73,10 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
       html += `<p><strong>Sopa</strong>: ${allSoups.join("; ")}</p>`;
     }
 
+    // Meals
     Object.entries(groupedByNome).forEach(([nome, componentes]) => {
       let typeLabel;
       const nomeUpper = nome.toUpperCase();
-
       let isOpcao = nomeUpper.includes("(OPÇÃO)");
 
       if (nomeUpper.includes("CARNE")) typeLabel = "Carne";
@@ -87,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isOpcao) typeLabel += " (opção)";
 
-
       const pratos = componentes.filter(c => c.TipoString === "Prato");
       if (pratos.length > 0) {
         html += `<p><strong>${typeLabel}</strong>: ${pratos.map(p => capitalizeFirstLetter(p.Nome)).join("; ")}</p>`;
@@ -97,52 +97,63 @@ document.addEventListener("DOMContentLoaded", () => {
     return html;
   }
 
-fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    // Handle empty or invalid data
-    if (!Array.isArray(data) || data.length === 0) {
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) {
+        document.querySelectorAll(".item-desc").forEach(el => {
+          stopLoadingAnimation(el);
+          el.textContent = "Encerrado";
+        });
+        console.warn("Sem dados recebidos da API.");
+        return;
+      }
+
+      Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
+        const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
+
+        // ❗ If this canteen has zero entries = it is closed
+        if (canteenMeals.length === 0) {
+          const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+
+          const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
+          const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
+
+          if (lunchDiv) {
+            stopLoadingAnimation(lunchDiv);
+            lunchDiv.innerHTML = "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
+          }
+          if (dinnerDiv) {
+            stopLoadingAnimation(dinnerDiv);
+            dinnerDiv.innerHTML = "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
+          }
+
+          return; // move to next canteen
+        }
+
+        const grouped = groupByPeriod(canteenMeals);
+
+        const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+
+        const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
+        const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
+
+        if (lunchDiv) {
+          stopLoadingAnimation(lunchDiv);
+          lunchDiv.innerHTML = generateMenuHTML(grouped["Almoço"]);
+        }
+
+        if (dinnerDiv) {
+          stopLoadingAnimation(dinnerDiv);
+          dinnerDiv.innerHTML = generateMenuHTML(grouped["Jantar"]);
+        }
+      });
+    })
+    .catch(err => {
+      console.error("Erro ao carregar as ementas:", err);
       document.querySelectorAll(".item-desc").forEach(el => {
         stopLoadingAnimation(el);
-        el.textContent = "Não existem dados disponíveis.";
+        el.textContent = "Erro ao carregar os dados.";
       });
-      console.warn("Sem dados recebidos da API.");
-      return;
-    }
-
-    Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
-      // Filter meals belonging to this canteen
-      const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
-
-      // Group by "Almoço" and "Jantar"
-      const grouped = groupByPeriod(canteenMeals);
-
-      // Determine correct pane id
-      const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
-
-      // Selectors for lunch and dinner
-      const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
-      const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
-
-      // Fill lunch section
-      if (lunchDiv) {
-        stopLoadingAnimation(lunchDiv);
-        lunchDiv.innerHTML = generateMenuHTML(grouped["Almoço"]);
-      }
-
-      // Fill dinner section
-      if (dinnerDiv) {
-        stopLoadingAnimation(dinnerDiv);
-        dinnerDiv.innerHTML = generateMenuHTML(grouped["Jantar"]);
-      }
     });
-  })
-  .catch(err => {
-    console.error("Erro ao carregar as ementas:", err);
-    document.querySelectorAll(".item-desc").forEach(el => {
-      stopLoadingAnimation(el);
-      el.textContent = "Erro ao carregar os dados.";
-    });
-  });
 });
-
