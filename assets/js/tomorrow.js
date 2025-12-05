@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const date = tomorrow.toISOString().split("T")[0];
-  const url = `https://little-lab-21a3.long-wildflower-846d.workers.dev/?date=${date}`;
+  const url = `https://api.cantinas.pt/?date=${date}`;
 
   const canteenMap = {
     "Santiago": "Santiago",

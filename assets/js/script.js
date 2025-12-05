@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const today = new Date().toISOString().split("T")[0];
-  const url = `https://little-lab-21a3.long-wildflower-846d.workers.dev/?date=${today}`;
+  const url = `https://api.cantinas.pt/?date=${today}`;
 
   const canteenMap = {
     "Santiago": "Santiago",
