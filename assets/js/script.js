@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateMenuHTML(items) {
     if (!items || items.length === 0) {
-      return "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
+      return "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
     }
 
     const groupedByNome = items.reduce((acc, item) => {
@@ -121,11 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (lunchDiv) {
             stopLoadingAnimation(lunchDiv);
-            lunchDiv.innerHTML = "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
+            lunchDiv.innerHTML = "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
           }
           if (dinnerDiv) {
             stopLoadingAnimation(dinnerDiv);
-            dinnerDiv.innerHTML = "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
+            dinnerDiv.innerHTML = "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
           }
 
           return; // move to next canteen
