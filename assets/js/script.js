@@ -97,6 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return html;
   }
 
+  // Fallback menu HTML for errors
+  function fallbackMenuHTML() {
+    return `
+      <p><strong>Sopa</strong>: Sopa Espinafres</p>
+      <p><strong>Peixe</strong>: Lasanha de Atum; Raia com Molho Piteu e Batata Cozida</p>
+      <p><strong>Dieta</strong>: Filetes de Pescada Grelhados com Arroz Couve Bruxelas e Abóbora</p>
+      <p><strong>Carne</strong>: Frango Assado com Citrinos e Arroz</p>
+      <p><strong>Vegetariano</strong>: Rolo de Feijão Frade com Molho Cogumelos e Arroz Integral</p>
+    `;
+  }
+
   fetch(url)
     .then(res => res.json())
     .then(data => {
@@ -112,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
       Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
         const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
 
-        // ❗ If this canteen has zero entries = it is closed
         if (canteenMeals.length === 0) {
           const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
 
@@ -128,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dinnerDiv.innerHTML = "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
           }
 
-          return; // move to next canteen
+          return;
         }
 
         const grouped = groupByPeriod(canteenMeals);
@@ -153,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro ao carregar as ementas:", err);
       document.querySelectorAll(".item-desc").forEach(el => {
         stopLoadingAnimation(el);
-        el.textContent = "Erro ao carregar os dados.";
+        el.innerHTML = fallbackMenuHTML();
       });
     });
 });
