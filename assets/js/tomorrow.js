@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateMenuHTML(items) {
     if (!items || items.length === 0) {
-      return "<p class='item-desc mb-0'><strong>Encerrado</strong></p>";
+      return "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
     }
 
     const groupedByNome = items.reduce((acc, item) => {
