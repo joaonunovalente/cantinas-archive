@@ -39,8 +39,33 @@
 </head>
 
 <body>
+	<div id="alerta-greve" style="
+    display: none; /* esconder até JS decidir mostrar */
+	background: #d00000;
+	color: #fff;
+	text-align: center;
+	padding: 10px 40px 10px 15px;
+	font-weight: 600;
+	font-size: 15px;
+	position: relative;
+">
+		⚠️ A API da Universidade de Aveiro encontra-se indisponível. Neste momento não é possível mostrar as ementas.
 
-	
+		<button id="fechar-alerta" style="
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		background: transparent;
+		border: none;
+		color: #fff;
+		font-size: 20px;
+		line-height: 20px;
+		cursor: pointer;
+	">×</button>
+	</div>
+
+
 	<div class="page-header-wrapper">
 		<div class="container">
 			<nav class="navbar navbar-expand-lg">
@@ -247,6 +272,8 @@
 
 	<!-- My JS -->
 	<script src="assets/js/tomorrow.js"></script>
+	<script src="assets/js/alert.js"></script>
+
 
 	<!-- No JS -->
 	<noscript>
