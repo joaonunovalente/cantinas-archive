@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro ao carregar as ementas:", err);
       document.querySelectorAll(".item-desc").forEach(el => {
         stopLoadingAnimation(el);
-        el.innerHTML = fallbackMenuTomorrowHTML();
+         el.textContent = "Erro ao carregar as ementas.";
       });
     });
 });
