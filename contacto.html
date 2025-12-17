@@ -74,6 +74,24 @@
 					<div class="help-search-intro mb-1">
 						Entra em contacto para sugestões, problemas técnicos ou pedidos de informação.
 					</div>
+					<div class="help-search-main pt-3 d-block mx-auto">
+						<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active" id="tab-cantinas" data-bs-toggle="pill"
+									data-bs-target="#pane-cantinas" type="button" role="tab"
+									aria-controls="pane-cantinas" aria-selected="true">Cantinas.pt</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-faq" data-bs-toggle="pill" data-bs-target="#pane-faq"
+									type="button" role="tab" aria-controls="pane-faq" aria-selected="false">FAQ</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link" id="tab-contact" data-bs-toggle="pill"
+									data-bs-target="#pane-contact" type="button" role="tab" aria-controls="pane-contact"
+									aria-selected="false">Formulário de Contacto</button>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -81,80 +99,327 @@
 
 	<section class="theme-section">
 		<div class="container ps-4 pe-4">
-			<div class="row justify-content-center mb-5">
-				<div class="col-lg-6">
-					<h2 class="mb-4">Cantinas.pt</h2>
-					<p>O <strong>Cantinas.pt</strong> é um site simples e rápido para consultar toda a informação essencial sobre as cantinas da Universidade de Aveiro.</p>
-					<p>Com informação sobre as ementas das cantinas de Santiago, Crasto, Grelhados, ESTGA e Restaurante Universitário.</p>
-					<p>Horários de almoço e jantar de cada cantina, e valores das refeições apresentados de forma clara.</p>
-					<br>
-					<p>
-						O <strong>Cantinas.pt</strong> apenas facilita o acesso às ementas da Universidade de Aveiro.
-						<strong>Não tem qualquer afiliação</strong> com a universidade.
-					</p>
-					<p>
-						Para entrares em contacto com os Serviços de Ação Social (SAS), que são responsáveis pelas várias 
-						Unidades Alimentares, podes fazê-lo através dos seguintes contactos:
-					</p>
-
-					<address>
-						<ul>
-							<li>234 370 348</a></li>
-							<li>sas@ua.pt</li>
-							<li><a href="https://www.ua.pt/pt/sas" target="_blank" rel="noopener">www.ua.pt/sas</a></li>
-						</ul>
-					</address>
-					<hr class="mt-5">
-				</div>
-			</div>
-
-
 			<div class="row justify-content-center">
-				<div class="col-lg-6">
+				<div class="tab-content" id="canteen-tabs-content">
+					<div class="tab-pane fade show active" id="pane-cantinas" role="tabpanel"
+						aria-labelledby="tab-cantinas">
 
-					<h2 class="mb-4">Formulário de Contacto</h2>
+						<!-- SOBRE O CANTINAS.PT -->
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
+								<h2 class="mb-4">Cantinas.pt</h2>
 
-					<p class="mb-5">
-						Caso queiras entrar em contacto com o <strong>Cantinas.pt</strong>, 
-						podes fazê-lo preenchendo o formulário abaixo.
-					</p>
+								<p>
+									O <strong>Cantinas.pt</strong> é um site simples e rápido para consultar toda a
+									informação
+									essencial sobre as cantinas da Universidade de Aveiro.
+								</p>
 
-					<div class="card p-4 shadow-sm rounded-3 text-center">
-						<h3 class="mt-4 mb-4 contact-title"> Envia a tua mensagem</h2>
-						<form action="https://api.web3forms.com/submit" method="POST">
-							<input type="hidden" name="access_key" value="a8d39281-0c9c-45ba-82e3-0b5a5ff4fdf6">
+								<p>
+									Com informação sobre as ementas das cantinas de Santiago, Crasto, Grelhados,
+									ESTGA e Restaurante Universitário.
+								</p>
 
-							<div class="mb-3 text-start">
-								<label class="form-label">Nome</label>
-								<input type="text" name="nome" class="form-control" required>
+								<p>
+									Horários de almoço e jantar de cada cantina, e valores das refeições apresentados
+									de forma clara.
+								</p>
+								<br>
+
+								<p>
+									O <strong>Cantinas.pt</strong> apenas facilita o acesso às ementas da Universidade
+									de
+									Aveiro.
+									<strong>Não tem qualquer afiliação</strong> com a universidade.
+								</p>
+
+								<p>
+									Para entrares em contacto com os Serviços de Ação Social (SAS), responsáveis pelas
+									Unidades Alimentares, utiliza os contactos oficiais:
+								</p>
+
+								<address>
+									<ul>
+										<li>234 370 348</li>
+										<li>sas@ua.pt</li>
+										<li>
+											<a href="https://www.ua.pt/pt/sas" target="_blank" rel="noopener">
+												www.ua.pt/sas
+											</a>
+										</li>
+									</ul>
+								</address>
 							</div>
+						</div>
 
-							<div class="mb-3 text-start">
-								<label class="form-label">Email</label>
-								<input type="email" name="email" class="form-control" required>
-							</div>
+					</div>
+					<div class="tab-pane fade" id="pane-faq" role="tabpanel" aria-labelledby="tab-faq">
+						<!-- PERGUNTAS FREQUENTES -->
+						<div class="row justify-content-center">
+							<div class="col-lg-8">
 
-							<div class="mb-3 text-start">
-								<label class="form-label">Mensagem</label>
-								<textarea name="mensagem" rows="4" class="form-control" required></textarea>
+								<h2 class="mb-4">Perguntas Frequentes</h2>
+
+								<p class="mb-4">Encontra aqui as respostas às dúvidas mais comuns sobre o Cantinas.pt.</p>
+
+								<div class="accordion" id="faqAccordion">
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button" type="button" data-bs-toggle="collapse"
+												data-bs-target="#faq1">
+												O Cantinas.pt é um site oficial da Universidade de Aveiro?
+											</button>
+										</h2>
+										<div id="faq1" class="accordion-collapse collapse show"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												Não. O <strong>Cantinas.pt</strong> é um projeto independente que apenas
+												facilita
+												o acesso à informação pública das ementas.
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq2">
+												De onde vem a informação das ementas?
+											</button>
+										</h2>
+										<div id="faq2" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												A informação é obtida a partir de fontes oficiais públicas da
+												Universidade
+												de Aveiro.
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq3">
+												Os horários e o preçário estão atualizados?
+											</button>
+										</h2>
+										<div id="faq3" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>
+													O objetivo é manter a informação atualizada, mas é possível que haja
+													algum
+													erro.
+												</p>
+												<p>
+													Nesse caso, usa o formulário ou envia um email para
+													<a href="mailto:contacto@cantinas.pt" class="fw-semibold">
+														contacto@cantinas.pt
+													</a>.
+												</p>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq4">
+												Posso sugerir melhorias ou reportar erros?
+											</button>
+										</h2>
+										<div id="faq4" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												Sim. Usa o formulário ou envia um email para
+												<a href="mailto:contacto@cantinas.pt" class="fw-semibold">
+													contacto@cantinas.pt
+												</a>.
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false"
+												aria-controls="faq5">
+												Porque é que as ementas não estão a carregar?
+											</button>
+										</h2>
+										<div id="faq5" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>Existem três motivos possíveis:</p>
+												<ul>
+													<li>Os serviços gerais da universidade estão indisponíveis.</li>
+													<li>O serviço das ementas está indisponível.</li>
+													<li>As ementas, simplesmente, não estão a carregar.</li>
+												</ul>
+												<p>Nos dois primeiros casos, não há nada que se possa fazer, senão
+													esperar.
+												</p>
+												<p>Se achares que é o terceiro motivo, usa o formulário ou envia
+													um
+													email
+													para
+													<a href="mailto:contacto@cantinas.pt" class="fw-semibold">
+														contacto@cantinas.pt
+													</a>.
+												</p>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false"
+												aria-controls="faq6">
+												É possível saber a ementa de um dia específico?
+											</button>
+										</h2>
+										<div id="faq6" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>Sim, embora possa ser algo mais técnico.</p>
+												<p>
+													Usando a ligação
+													<code><a href="https://api.cantinas.pt/?date=yyyy-mm-dd" target="_blank" rel="noopener noreferrer">api.cantinas.pt/?date=yyyy-mm-dd</a></code>
+													é possível retornar um ficheiro <a
+														href="https://www.json.org/json-en.html" target="_blank"
+														rel="noopener noreferrer">JSON</a>.
+												</p>
+												<p>
+													Este ficheiro tem mais informações para além das ementas.
+												</p>
+												<p>
+													Nomeadamente, os alergénios presentes (ex: glúten, ovos, soja,
+													leite,
+													aipo,
+													mostarda, sulfitos).
+												</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false"
+												aria-controls="faq7">
+												Qual foi a inspiração para criar o Cantinas.pt?
+											</button>
+										</h2>
+										<div id="faq7" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>
+													Existe um projeto do <a href="https://glua.ua.pt/" target="_blank"
+														rel="noopener noreferrer">GLUA</a> (Grupo de Linux da
+													Universidade
+													de
+													Aveiro)
+													no <a href="https://github.com/RodrigoRosmaninho/ementas-ua"
+														target="_blank" rel="noopener noreferrer">GitHub</a>, que faz
+													precisamente o que o
+													<strong>Cantinas.pt</strong> se propõe a fazer, mas focado apenas no sistema
+													operativo <a href="https://www.linuxmint.com/" target="_blank"
+														rel="noopener noreferrer">Linux</a>.
+												</p>
+												<p>
+													Então, porque não criar uma opção mais acessível para todos?
+												</p>
+												<p>
+													<i>O Homem quer, o Homem sonha, o Homem faz a obra nascer!</i>
+												</p>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq8">
+												Existe algum Easter Egg?
+											</button>
+										</h2>
+										<div id="faq8" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>
+													<a href="https://caninas.pt" target="_blank"
+														rel="noopener noreferrer">Sim</a>.
+
+												</p>
+											</div>
+										</div>
+									</div>
+
+								</div>
 							</div>
-							<div class="mt-4">
-								<button type="submit" class="btn btn-primary w-100">Enviar</button>
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="pane-contact" role="tabpanel" aria-labelledby="tab-contact">
+
+						<!-- FORMULÁRIO DE CONTACTO -->
+						<div class="row justify-content-center">
+							<div class="col-lg-6">
+
+
+								<h2 class="mb-4">Formulário de Contacto</h2>
+
+								<p class="mb-5">
+									Caso queiras entrar em contacto com o <strong>Cantinas.pt</strong>,
+									podes fazê-lo preenchendo o formulário.
+								</p>
+
+								<div class="card p-4 shadow-sm rounded-3 text-center">
+									<h3 class="mt-4 mb-4 contact-title">Envia a tua mensagem</h3>
+
+									<form action="https://api.web3forms.com/submit" method="POST">
+										<input type="hidden" name="access_key"
+											value="a8d39281-0c9c-45ba-82e3-0b5a5ff4fdf6">
+
+										<div class="mb-3 text-start">
+											<label class="form-label">Nome</label>
+											<input type="text" name="nome" class="form-control" required>
+										</div>
+
+										<div class="mb-3 text-start">
+											<label class="form-label">Email</label>
+											<input type="email" name="email" class="form-control" required>
+										</div>
+
+										<div class="mb-3 text-start">
+											<label class="form-label">Mensagem</label>
+											<textarea name="mensagem" rows="4" class="form-control" required></textarea>
+										</div>
+
+										<div class="mt-4">
+											<button type="submit" class="btn btn-primary w-100">Enviar</button>
+										</div>
+									</form>
+
+									<p class="mt-4 mb-0">
+										Ou envia um email para<br>
+										<a href="mailto:contacto@cantinas.pt" class="fw-semibold">
+											contacto@cantinas.pt
+										</a>
+									</p>
+								</div>
 							</div>
-						</form>
-						<p class="mt-4 mb-0">
-							Ou envia um email para <br>
-							<a href="mailto:contacto@cantinas.pt" class="fw-semibold">
-								contacto@cantinas.pt
-							</a>
-						</p>
+						</div>
 					</div>
 				</div>
 			</div>
-
-		</div>
 	</section>
-	
 
 	<footer class="footer py-1 border-top">
 		<div class="container text-center text-light">
