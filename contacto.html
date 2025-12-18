@@ -218,7 +218,8 @@
 												</p>
 												Nesse caso, preenche o formulário ou envia um email para
 												<a href="mailto:contacto@cantinas.pt"
-													class="fw-semibold">contacto@cantinas.pt</a> para que se possa corrigir.
+													class="fw-semibold">contacto@cantinas.pt</a> para que se possa
+												corrigir.
 											</div>
 
 										</div>
@@ -309,6 +310,34 @@
 										</div>
 									</div>
 
+
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#faq15">
+												Por vezes, as ementas ficam "A carregar a ementa de hoje/amanhã..."
+												durante imenso tempo.
+											</button>
+										</h2>
+										<div id="faq15" class="accordion-collapse collapse"
+											data-bs-parent="#faqAccordion">
+											<div class="accordion-body">
+												<p>Quando a duração ultrapassa 5 segundos, é porque os dados estão a ser
+												obtidos quase diretamente da API da universidade.</p>
+
+												<p>Explicando melhor: a API da universidade demora cerca de 5 segundos a
+												responder a um pedido de ementas. Para reduzir esse tempo, o <strong>Cantinas.pt</strong>
+												guarda em cache as ementas do dia. Assim, os utilizadores não precisam
+												esperar tanto tempo e obtêm os dados pela API do <strong>Cantinas.pt</strong>.</p>
+
+												No entanto, a própria API do <strong>Cantinas.pt</strong> acaba, por vezes, por não
+												conseguir satisfazer os pedidos apenas com os dados em cache. Nesses
+												casos, é necessário comunicar novamente com a API da universidade.
+
+											</div>
+										</div>
+									</div>
+
 									<div class="accordion-item">
 										<h2 class="accordion-header">
 											<button class="accordion-button collapsed" type="button"
@@ -322,8 +351,11 @@
 											<div class="accordion-body">
 												<p>Existem dois motivos prováveis:</p>
 												<ul>
-													<li>Não escreveste bem o teu email quando preencheste o formulário. E, consequentemente, não foi possível fazer-te chegar a resposta.</li>
-													<li>Falta de tempo. Não precisas de enviar uma nova mensagem, se for este o caso.</li>
+													<li>Não escreveste bem o teu email quando preencheste o formulário.
+														E, consequentemente, não foi possível fazer-te chegar a
+														resposta.</li>
+													<li>Falta de tempo. Não precisas de enviar uma nova mensagem, se for
+														este o caso.</li>
 												</ul>
 											</div>
 										</div>
