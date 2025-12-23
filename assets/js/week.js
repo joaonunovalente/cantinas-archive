@@ -10,6 +10,25 @@ document.addEventListener("DOMContentLoaded", () => {
 		"tab-restaurante": "Restaurante Universitário"
 	};
 
+	const loadingIntervals = new Map();
+
+	function startLoadingAnimation(el) {
+		let dots = 1;
+		if (loadingIntervals.has(el)) return; // já a animar
+		const interval = setInterval(() => {
+			el.textContent = "A carregar a ementa de amanhã" + ".".repeat(dots);
+			dots = (dots % 3) + 1;
+		}, 800);
+		loadingIntervals.set(el, interval);
+	}
+
+	function stopLoadingAnimation(el) {
+		if (loadingIntervals.has(el)) {
+			clearInterval(loadingIntervals.get(el));
+			loadingIntervals.delete(el);
+		}
+	}
+
 	function getMonday(date) {
 		const d = new Date(date);
 		const day = (d.getDay() + 6) % 7;
@@ -82,8 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			const lunchEl = block.querySelector(".lunch");
 			const dinnerEl = block.querySelector(".dinner");
 
-			lunchEl.textContent = "A carregar…";
-			dinnerEl.textContent = "A carregar…";
+			// Começar animação
+			startLoadingAnimation(lunchEl);
+			startLoadingAnimation(dinnerEl);
 
 			lunchEl.style.display = "";
 			dinnerEl.style.display = "";
@@ -101,6 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					const meals = data.filter(m =>
 						m.Refeitorios.some(r => normalizeString(r) === normalizedSelected)
 					);
+
+					stopLoadingAnimation(lunchEl);
+					stopLoadingAnimation(dinnerEl);
 
 					if (!meals.length) {
 						lunchEl.innerHTML = "<p>Encontra-se encerrado.</p>";
@@ -126,8 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				})
 				.catch(() => {
-					lunchEl.textContent = "Erro";
-					dinnerEl.textContent = "Erro";
+					stopLoadingAnimation(lunchEl);
+					stopLoadingAnimation(dinnerEl);
+					lunchEl.textContent = "Erro ao carregar as ementas.";
+					dinnerEl.textContent = "Erro ao carregar as ementas.";
 				});
 		});
 	}
