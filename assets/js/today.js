@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!Array.isArray(data) || data.length === 0) {
         document.querySelectorAll(".item-desc").forEach(el => {
           stopLoadingAnimation(el);
-          el.textContent = "Encerrado";
+          el.textContent = "Encerrado.";
         });
         console.warn("Sem dados recebidos da API.");
         return;

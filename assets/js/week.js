@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let dots = 1;
 		if (loadingIntervals.has(el)) return; // já a animar
 		const interval = setInterval(() => {
-			el.textContent = "A carregar a ementa de amanhã" + ".".repeat(dots);
+			el.textContent = "A carregar a ementa" + ".".repeat(dots);
 			dots = (dots % 3) + 1;
 		}, 800);
 		loadingIntervals.set(el, interval);
