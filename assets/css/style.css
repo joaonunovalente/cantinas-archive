@@ -1,26 +1,28 @@
 /* Custom tab colors */
 .nav-pills .nav-link {
-	background-color: #f3f6fa; /* light neutral background */
-	margin: 0 5px;
+  background-color: #f3f6fa;
+  /* light neutral background */
+  margin: 0 5px;
   border-radius: 10px;
-	transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-pills .nav-link:hover {
-	background-color: #e2e6ea;
-	color: #000;
+  background-color: #e2e6ea;
+  color: #000;
 }
 
 .nav-pills .nav-link.active {
-	background-color: #53B656; /* Bootstrap blue */
-	color: #fff;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  background-color: #53B656;
+  /* Bootstrap blue */
+  color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 991px) {
   #canteen-tabs .nav-link {
     margin-bottom: 8px;
-	  margin-top: 8px;
+    margin-top: 8px;
     margin-right: 16px;
   }
 }
@@ -39,12 +41,14 @@
 }
 
 .navbar-nav .nav-link {
-  border-bottom: 2px solid transparent;  /* reserve space */
+  border-bottom: 2px solid transparent;
+  /* reserve space */
   padding-bottom: 2px;
 }
 
 .navbar .nav-link.active {
-  border-bottom-color: #53B656;          /* only change color */
+  border-bottom-color: #53B656;
+  /* only change color */
   color: white !important;
 }
 
@@ -65,4 +69,14 @@
 .footer a:hover {
   text-decoration: underline;
   color: whitesmoke;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+.content-wrap {
+  padding-bottom: 6rem;    /* Footer height */
 }
