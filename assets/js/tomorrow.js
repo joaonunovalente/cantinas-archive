@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadingIntervals = new Map();
 
   document.querySelectorAll(".item-desc").forEach(el => {
-    if (el.textContent.includes("A carregar a ementa de amanhã")) {
+    if (el.textContent.includes("A carregar a ementa")) {
       let dots = 1;
       const interval = setInterval(() => {
-        el.textContent = "A carregar a ementa de amanhã" + ".".repeat(dots);
+        el.textContent = "A carregar a ementa" + ".".repeat(dots);
         dots = (dots % 3) + 1;
       }, 800);
       loadingIntervals.set(el, interval);
