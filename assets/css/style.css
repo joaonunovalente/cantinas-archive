@@ -82,8 +82,8 @@
   /* Footer height */
 }
 
-/* @media (max-width: 767px) {
+@media (max-width: 767px) {
   .content-wrap {
     padding-bottom: 7rem;
   }
-} */
+}
