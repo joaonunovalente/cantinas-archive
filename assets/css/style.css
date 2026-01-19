@@ -80,3 +80,9 @@
 .content-wrap {
   padding-bottom: 6rem;    /* Footer height */
 }
+
+@media (max-width: 767px) {
+  .content-wrap {
+    padding-bottom: 8rem; /* or any value bigger than 6rem */
+  }
+}
