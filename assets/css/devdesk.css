@@ -4073,7 +4073,7 @@ fieldset:disabled .btn {
   top: auto;
   bottom: 100%;
   margin-top: 0;
-  margin-bottom: var(--bs-dropdown-spacer);
+  margin-bottom: var(--bs-dropdown-spacer);auto
 }
 
 .dropup .dropdown-toggle::after {
