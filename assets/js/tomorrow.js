@@ -161,7 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Erro ao carregar as ementas:", err);
       document.querySelectorAll(".item-desc").forEach(el => {
         stopLoadingAnimation(el);
-         el.textContent = "Erro ao carregar as ementas.";
+        el.innerHTML = fallbackMenuTomorrowHTML();  // insere o fallback no elemento
       });
     });
+
 });
