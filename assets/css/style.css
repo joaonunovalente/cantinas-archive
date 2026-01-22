@@ -83,11 +83,11 @@
   padding-bottom: 6rem;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .content-wrap {
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
   }
-}
+} */
 
 .footer-mobile {
   display: none;
