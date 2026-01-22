@@ -53,6 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		return str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
 	}
 
+	function fallbackMenuHTML() {
+		return `
+    <p><strong>Sopa</strong>: Creme de Abóbora</p>
+    <p><strong>Peixe</strong>: Bacalhau à Brás; Filetes de Salmão Grelhado</p>
+    <p><strong>Dieta</strong>: Peito de Frango Grelhado com Legumes</p>
+    <p><strong>Carne</strong>: Bife de Vaca com Arroz de Feijão</p>
+    <p><strong>Vegetariano</strong>: Esparguete com Molho de Tomate e Manjericão</p>
+  `;
+	}
+
+
 	function generateMenuHTML(items) {
 		if (!items || items.length === 0) {
 			return "<p>Encontra-se encerrado.</p>";
@@ -151,8 +162,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				.catch(() => {
 					stopLoadingAnimation(lunchEl);
 					stopLoadingAnimation(dinnerEl);
-					lunchEl.textContent = "Erro ao carregar as ementas.";
-					dinnerEl.textContent = "Erro ao carregar as ementas.";
+					lunchEl.innerHTML = fallbackMenuHTML();
+					dinnerEl.innerHTML = fallbackMenuHTML();
+					// lunchEl.textContent = "Erro ao carregar as ementas.";
+					// dinnerEl.textContent = "Erro ao carregar as ementas.";
 				});
 		});
 	}
