@@ -1,7 +1,6 @@
-/* Custom tab colors */
+/* Tabs */
 .nav-pills .nav-link {
   background-color: #f3f6fa;
-  /* light neutral background */
   margin: 0 5px;
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
@@ -14,19 +13,17 @@
 
 .nav-pills .nav-link.active {
   background-color: #53B656;
-  /* Bootstrap blue */
   color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 991px) {
   #canteen-tabs .nav-link {
-    margin-bottom: 8px;
-    margin-top: 8px;
-    margin-right: 16px;
+    margin: 8px 16px 8px 0;
   }
 }
 
+/* Navbar */
 .site-logo-link {
   display: flex;
   align-items: center;
@@ -37,73 +34,75 @@
 
 .site-logo-link h5 {
   margin: 0;
-  color: white;
+  color: #fff;
 }
 
 .navbar-nav .nav-link {
-  border-bottom: 2px solid transparent;
-  /* reserve space */
   padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar .nav-link.active {
   border-bottom-color: #53B656;
-  /* only change color */
-  color: white !important;
+  color: #fff !important;
 }
 
-.contact-title {
-  text-align: center;
-}
-
-.footer h6 {
-  color: whitesmoke;
-  text-decoration: none;
-}
-
-.footer a {
-  color: whitesmoke;
-  text-decoration: none;
-}
-
-
-.footer a:hover {
-  text-decoration: underline;
-  color: whitesmoke;
-}
-
-
+/* Content layout */
 .page-container {
   position: relative;
   min-height: 100vh;
 }
 
-
 .content-wrap {
   padding-bottom: 6rem;
 }
 
-/* @media (max-width: 767px) {
-  .content-wrap {
-    padding-bottom: 6rem;
-  }
-} */
-
-.footer-mobile {
-  display: none;
+/* Footer */
+.contact-title {
+  text-align: center;
 }
 
+.footer h6,
+.footer a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+
+/* Show footer links normally on desktop */
+.footer-links {
+  display: block;
+}
+
+/* On mobile, adjust footer layout */
 @media (max-width: 414px) {
-  .footer-mobile {
-    display: block;
-  }
-  
-  /* Optionally hide the desktop version on mobile */
-  p.mb-3:not(.footer-mobile) {
-    display: none;
+  .footer-links p {
+    font-size: small;
+    margin-bottom: 0.5rem;
   }
 }
 
-.footer-mobile {
-  margin-bottom: 0.2em; /* or smaller value */
+.logo-md {
+  height: 40px;
+}
+
+.logo-sm {
+  height: 35px;
+}
+
+.icon-invert {
+  filter: brightness(0) invert(1);
+}
+
+.text-small {
+  font-size: small;
+}
+
+.table-schedule {
+  width: 100%;
+  table-layout: fixed;
 }

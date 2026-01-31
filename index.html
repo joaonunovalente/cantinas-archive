@@ -2,65 +2,67 @@
 <html lang="pt">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 	<meta name="description"
-		content="Consulta as refeições diárias nas cantinas da Universidade de Aveiro: Santiago, Crasto, ESTGA, Grelhados e Restaurante Universitário.">
-	<meta name="author" content="Cantinas.pt">
-	<meta name="theme-color" content="#ffffff">
+		content="Consulta as refeições diárias nas cantinas da Universidade de Aveiro: Santiago, Crasto, ESTGA, Grelhados e Restaurante Universitário." />
+	<meta name="author" content="Cantinas.pt" />
+	<meta name="theme-color" content="#ffffff" />
 
-	<meta property="og:title" content="Cantinas.pt | Ementas das cantinas da Universidade de Aveiro">
+	<!-- Open Graph -->
+	<meta property="og:title" content="Cantinas.pt | Ementas das cantinas da Universidade de Aveiro" />
 	<meta property="og:description"
-		content="Consulta as refeições diárias nas cantinas da Universidade de Aveiro: Santiago, Crasto, ESTGA, Grelhados e Restaurante Universitário.">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://cantinas.pt/">
-	<meta property="og:site_name" content="Cantinas.pt">
+		content="Consulta as refeições diárias nas cantinas da Universidade de Aveiro: Santiago, Crasto, ESTGA, Grelhados e Restaurante Universitário." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://cantinas.pt/" />
+	<meta property="og:site_name" content="Cantinas.pt" />
 
-	<link rel="canonical" href="https://cantinas.pt/">
+	<link rel="canonical" href="https://cantinas.pt/" />
 
 	<title>Cantinas.pt | Ementas das cantinas da Universidade de Aveiro</title>
 
-	<!-- favicon -->
+	<!-- Favicon -->
 	<link rel="icon" href="assets/img/favicon.ico" />
 
-	<!-- Google Font -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Preload critical assets -->
+	<link rel="preload" href="assets/img/logo/logo-color.svg" as="image" />
+	<link rel="preload" href="assets/css/style.css" as="style" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap"
 		rel="stylesheet">
 
-	<!-- Theme CSS -->
-	<link id="theme-style" rel="stylesheet" href="assets/css/devdesk.css">
-
-	<!-- My CSS -->
-	<link id="my-style" rel="stylesheet" href="assets/css/style.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="assets/css/devdesk.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
 	<div class="page-container">
 		<div class="content-wrap">
 
-			<div class="page-header-wrapper">
+			<!-- Header -->
+			<header class="page-header-wrapper">
 				<div class="container">
-					<nav class="navbar navbar-expand-xl">
-						<div class="site-logo me-2">
-							<a class="site-logo-link active" href="/">
-								<img style="height: 40px;" src="assets/img/logo/logo-color.svg" alt="logo" />
-							</a>
-						</div>
+					<nav class="navbar navbar-expand-xl" role="navigation" aria-label="Main navigation">
+						<a class="site-logo-link me-2" href="/">
+							<img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-md" />
+						</a>
 
 						<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
 							data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
 							aria-label="Toggle navigation">
-							<span> </span>
-							<span> </span>
-							<span> </span>
+							<span></span>
+							<span></span>
+							<span></span>
 						</button>
 
 						<div class="collapse navbar-collapse ms-auto" id="navigation">
-
 							<ul class="navbar-nav ms-auto align-items-xl-center">
 								<li class="nav-item me-lg-4">
 									<a class="nav-link active" href="/">Hoje</a>
@@ -77,200 +79,195 @@
 								<li class="nav-item me-lg-4">
 									<a class="nav-link" href="/contacto">Contacto</a>
 								</li>
-								<li class="nav-item me-lg-4">
+								<li class="nav-item">
 									<a class="nav-link" href="https://mysas.ua.pt/" target="_blank"
 										rel="noopener noreferrer">
 										Portal MySAS
-										<img style="filter: brightness(0) invert(1);" class="ms-1 mb-1"
-											src="assets/img/hyperlink.png" alt="" width="14" height="14">
+										<img src="assets/img/hyperlink.png" alt="Ligação para o Portal MySas" width="14"
+											height="14" class="icon-invert ms-1 mb-1" />
 									</a>
 								</li>
-							</ul><!--//navbar-nav-->
-
+							</ul>
 						</div>
 					</nav>
-				</div><!--//container-->
+				</div>
+
+				<!-- Heading -->
 				<div class="page-heading-holder">
 					<div class="container text-center">
 						<h1 class="page-heading mt-5 mb-3">Hoje</h1>
-						<div class="page-heading-sub single-col-max mx-auto">
-							<div class="help-search-intro mb-1">
-								Consulta as ementas disponíveis hoje nos refeitórios da Universidade de Aveiro.
-							</div>
-							<div class="help-search-main pt-3 d-block mx-auto">
-								<!-- Tabs -->
-								<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs"
-									role="tablist">
-									<li class="nav-item" role="presentation">
-										<button class="nav-link active" id="tab-santiago" data-bs-toggle="pill"
-											data-bs-target="#pane-santiago" type="button" role="tab"
-											aria-controls="pane-santiago" aria-selected="true">Santiago</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-crasto" data-bs-toggle="pill"
-											data-bs-target="#pane-crasto" type="button" role="tab"
-											aria-controls="pane-crasto" aria-selected="false">Crasto</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-grelhados" data-bs-toggle="pill"
-											data-bs-target="#pane-grelhados" type="button" role="tab"
-											aria-controls="pane-grelhados" aria-selected="false">Grelhados</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-estga" data-bs-toggle="pill"
-											data-bs-target="#pane-estga" type="button" role="tab"
-											aria-controls="pane-estga" aria-selected="false">ESTGA</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-restaurante" data-bs-toggle="pill"
-											data-bs-target="#pane-restaurante" type="button" role="tab"
-											aria-controls="pane-restaurante" aria-selected="false">Restaurante
-											Universitário</button>
-									</li>
-								</ul>
-							</div>
-						</div>
+
+						<p class="mb-1 lead">
+							Consulta as ementas disponíveis hoje nos refeitórios da Universidade de Aveiro.
+						</p>
+
+						<!-- Tabs -->
+						<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs" role="tablist">
+							<li class="nav-item">
+								<button class="nav-link active" id="tab-santiago" data-bs-toggle="pill"
+									data-bs-target="#pane-santiago" type="button" role="tab"
+									aria-controls="pane-santiago" aria-selected="true">Santiago</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-crasto" data-bs-toggle="pill"
+									data-bs-target="#pane-crasto" type="button" role="tab" aria-controls="pane-crasto"
+									aria-selected="false">Crasto</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-grelhados" data-bs-toggle="pill"
+									data-bs-target="#pane-grelhados" type="button" role="tab"
+									aria-controls="pane-grelhados" aria-selected="false">Grelhados</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-estga" data-bs-toggle="pill"
+									data-bs-target="#pane-estga" type="button" role="tab" aria-controls="pane-estga"
+									aria-selected="false">ESTGA</button>
+							</li>
+							<li class="nav-item">
+								<button class="nav-link" id="tab-restaurante" data-bs-toggle="pill"
+									data-bs-target="#pane-restaurante" type="button" role="tab"
+									aria-controls="pane-restaurante" aria-selected="false">Restaurante
+									Universitário</button>
+							</li>
+						</ul>
 					</div>
 				</div>
-			</div>
+			</header>
 
-			<!-- Menu Section -->
-			<section class="help-featured-section theme-section">
-				<div class="container">
-					<div class="tab-content" id="canteen-tabContent">
-
-						<!-- Santiago -->
-						<div class="tab-pane fade show active" id="pane-santiago" role="tabpanel"
-							aria-labelledby="tab-santiago">
-							<div class="row align-content-stretch">
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Almoço</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+			<!-- Main content -->
+			<main>
+				<!-- Menu Section -->
+				<section class="help-featured-section theme-section">
+					<div class="container">
+						<div class="tab-content" id="canteen-tabContent">
+							<!-- Santiago -->
+							<div class="tab-pane fade show active" id="pane-santiago" role="tabpanel"
+								aria-labelledby="tab-santiago">
+								<div class="row">
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Almoço</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Jantar</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Jantar</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<!-- Crasto -->
-						<div class="tab-pane fade" id="pane-crasto" role="tabpanel" aria-labelledby="tab-crasto">
-							<div class="row align-content-stretch">
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Almoço</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+							<!-- Crasto -->
+							<div class="tab-pane fade" id="pane-crasto" role="tabpanel" aria-labelledby="tab-crasto">
+								<div class="row">
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Almoço</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Jantar</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Jantar</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<!-- Grelhados -->
-						<div class="tab-pane fade" id="pane-grelhados" role="tabpanel" aria-labelledby="tab-grelhados">
-							<div class="row align-content-stretch">
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Almoço</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+							<!-- Grelhados -->
+							<div class="tab-pane fade" id="pane-grelhados" role="tabpanel"
+								aria-labelledby="tab-grelhados">
+								<div class="row">
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Almoço</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Jantar</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Jantar</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<!-- ESTGA -->
-						<div class="tab-pane fade" id="pane-estga" role="tabpanel" aria-labelledby="tab-estga">
-							<div class="row align-content-stretch">
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Almoço</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+							<!-- ESTGA -->
+							<div class="tab-pane fade" id="pane-estga" role="tabpanel" aria-labelledby="tab-estga">
+								<div class="row">
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Almoço</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Jantar</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Jantar</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<!-- Restaurante Universitário -->
-						<div class="tab-pane fade" id="pane-restaurante" role="tabpanel"
-							aria-labelledby="tab-restaurante">
-							<div class="row align-content-stretch">
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Almoço</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+							<!-- Restaurante Universitário -->
+							<div class="tab-pane fade" id="pane-restaurante" role="tabpanel"
+								aria-labelledby="tab-restaurante">
+								<div class="row">
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Almoço</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
-								</div>
-								<div class="col-12 col-md-6 py-4 p-md-4">
-									<div class="item-inner shadow rounded-4 p-4 h-100">
-										<h2 class="item-heading mb-3">Jantar</h2>
-										<p class="item-desc mb-0">A carregar a ementa...</p>
+									<div class="col-12 col-md-6 py-4">
+										<div class="item-inner shadow rounded-4 p-4 h-100">
+											<h2 class="item-heading mb-3">Jantar</h2>
+											<p class="item-desc mb-0">A carregar a ementa...</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</main>
 		</div>
 
+		<!-- Footer -->
 		<footer class="footer py-1 border-top">
 			<div class="container text-center text-light">
-				<div class="mt-3 mb-2 site-logo d-flex justify-content-center">
-					<a class="site-logo-link active" href="/">
-						<img style="height: 35px;" src="assets/img/logo/logo-color.svg" alt="logo" />
-					</a>
-				</div>
-				<p class="mb-3">
-					<a class="theme-link" href="/">Hoje</a> ·
-					<a class="theme-link" href="/amanha">Amanhã</a> ·
-					<a class="theme-link" href="/semana">Semana</a> ·
-					<a class="theme-link" href="/horarios-precario">Horários e Preçário</a> ·
-					<a class="theme-link" href="/contacto">Contacto</a>
-				</p>
+				<a class="site-logo-link d-inline-flex justify-content-center mt-3 mb-2" href="/">
+					<img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-sm" />
+				</a>
 
-				<p style="font-size:small;" class="footer-mobile mb-3">
-					<a class="theme-link" href="/">Hoje</a> ·
-					<a class="theme-link" href="/amanha">Amanhã</a> ·
-					<a class="theme-link" href="/semana">Semana</a> ·
-					<a class="theme-link" href="/horarios-precario">Horários e Preçário</a> ·
-					<a class="theme-link" href="/contacto">Contacto</a>
-				</p>
+				<nav aria-label="Footer navigation" class="footer-links">
+					<p class="mb-3">
+						<a href="/">Hoje</a> ·
+						<a href="/amanha">Amanhã</a> ·
+						<a href="/semana">Semana</a> ·
+						<a href="/horarios-precario">Horários e Preçário</a> ·
+						<a href="/contacto">Contacto</a>
+					</p>
+				</nav>
 			</div>
 		</footer>
 	</div>
+
 	<!-- JS -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- My JS -->
 	<script src="assets/js/today.js"></script>
 
-	<!-- No JS -->
 	<noscript>
-		<p>Ative o JavaScript para consultares as ementas.</p>
+		<p class="text-center mt-3">
+			Ativa o JavaScript para consultares as ementas.
+		</p>
 	</noscript>
 </body>
 

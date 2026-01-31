@@ -42,29 +42,26 @@
 		<div class="content-wrap">
 			<div class="page-header-wrapper">
 				<div class="container">
-					<nav class="navbar navbar-expand-xl">
-						<div class="site-logo me-2">
-							<a class="site-logo-link active" href="/">
-								<img style="height: 40px;" src="assets/img/logo/logo-color.svg" alt="logo" />
-							</a>
-						</div>
+					<nav class="navbar navbar-expand-xl" role="navigation" aria-label="Main navigation">
+						<a class="site-logo-link me-2" href="/">
+							<img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-md" />
+						</a>
 
 						<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
 							data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
 							aria-label="Toggle navigation">
-							<span> </span>
-							<span> </span>
-							<span> </span>
+							<span></span>
+							<span></span>
+							<span></span>
 						</button>
 
 						<div class="collapse navbar-collapse ms-auto" id="navigation">
-
 							<ul class="navbar-nav ms-auto align-items-xl-center">
 								<li class="nav-item me-lg-4">
 									<a class="nav-link" href="/">Hoje</a>
 								</li>
 								<li class="nav-item me-lg-4">
-									<a class="nav-link" href="/amanha">Amanhã</a>
+									<a class="nav-link" href="/amanha" aria-current="page">Amanhã</a>
 								</li>
 								<li class="nav-item me-lg-4">
 									<a class="nav-link" href="/semana">Semana</a>
@@ -75,16 +72,15 @@
 								<li class="nav-item me-lg-4">
 									<a class="nav-link active" href="/contacto">Contacto</a>
 								</li>
-								<li class="nav-item me-lg-4">
+								<li class="nav-item">
 									<a class="nav-link" href="https://mysas.ua.pt/" target="_blank"
 										rel="noopener noreferrer">
 										Portal MySAS
-										<img style="filter: brightness(0) invert(1);" class="ms-1 mb-1"
-											src="assets/img/hyperlink.png" alt="" width="14" height="14">
+										<img src="assets/img/hyperlink.png" alt="Ligação para o Portal MySas" width="14"
+											height="14" class="icon-invert ms-1 mb-1" />
 									</a>
 								</li>
-							</ul><!--//navbar-nav-->
-
+							</ul>
 						</div>
 					</nav>
 				</div>
@@ -92,32 +88,30 @@
 				<div class="page-heading-holder">
 					<div class="container text-center">
 						<h1 class="page-heading mt-5 mb-3">Contacto</h1>
-						<div class="page-heading-sub single-col-max mx-auto">
-							<div class="help-search-intro mb-1">
-								Entra em contacto para sugestões, problemas técnicos ou pedidos de informação.
-							</div>
-							<div class="help-search-main pt-3 d-block mx-auto">
-								<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs"
-									role="tablist">
-									<li class="nav-item" role="presentation">
-										<button class="nav-link active" id="tab-cantinas" data-bs-toggle="pill"
-											data-bs-target="#pane-cantinas" type="button" role="tab"
-											aria-controls="pane-cantinas" aria-selected="true">Cantinas.pt</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-faq" data-bs-toggle="pill"
-											data-bs-target="#pane-faq" type="button" role="tab" aria-controls="pane-faq"
-											aria-selected="false">FAQ</button>
-									</li>
-									<li class="nav-item" role="presentation">
-										<button class="nav-link" id="tab-contact" data-bs-toggle="pill"
-											data-bs-target="#pane-contact" type="button" role="tab"
-											aria-controls="pane-contact" aria-selected="false">Formulário de
-											Contacto</button>
-									</li>
-								</ul>
-							</div>
+						<div class="mb-1 lead">
+							Entra em contacto para sugestões, problemas técnicos ou pedidos de informação.
 						</div>
+						<div class="help-search-main pt-0 d-block mx-auto">
+							<ul class="nav nav-pills justify-content-center mt-4 mb-1" id="canteen-tabs" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link active" id="tab-cantinas" data-bs-toggle="pill"
+										data-bs-target="#pane-cantinas" type="button" role="tab"
+										aria-controls="pane-cantinas" aria-selected="true">Cantinas.pt</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab-faq" data-bs-toggle="pill"
+										data-bs-target="#pane-faq" type="button" role="tab" aria-controls="pane-faq"
+										aria-selected="false">FAQ</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link" id="tab-contact" data-bs-toggle="pill"
+										data-bs-target="#pane-contact" type="button" role="tab"
+										aria-controls="pane-contact" aria-selected="false">Formulário de
+										Contacto</button>
+								</li>
+							</ul>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -571,35 +565,33 @@
 			</section>
 		</div>
 
-
 		<footer class="footer py-1 border-top">
 			<div class="container text-center text-light">
 				<div class="mt-3 mb-2 site-logo d-flex justify-content-center">
-					<a class="site-logo-link active" href="/">
-						<img style="height: 35px;" src="assets/img/logo/logo-color.svg" alt="logo" />
+					<a href="/" class="site-logo-link active">
+						<img src="assets/img/logo/logo-color.svg" alt="logo" height="35" />
 					</a>
 				</div>
 				<p class="mb-3">
-					<a class="theme-link" href="/">Hoje</a> ·
-					<a class="theme-link" href="/amanha">Amanhã</a> ·
-					<a class="theme-link" href="/semana">Semana</a> ·
-					<a class="theme-link" href="/horarios-precario">Horários e Preçário</a> ·
-					<a class="theme-link" href="/contacto">Contacto</a>
-				</p>
-
-				<p style="font-size:small;" class="footer-mobile mb-3">
-					<a class="theme-link" href="/">Hoje</a> ·
-					<a class="theme-link" href="/amanha">Amanhã</a> ·
-					<a class="theme-link" href="/semana">Semana</a> ·
-					<a class="theme-link" href="/horarios-precario">Horários e Preçário</a> ·
-					<a class="theme-link" href="/contacto">Contacto</a>
+					<a href="/" class="theme-link">Hoje</a> ·
+					<a href="/amanha" class="theme-link">Amanhã</a> ·
+					<a href="/semana" class="theme-link">Semana</a> ·
+					<a href="/horarios-precario" class="theme-link">Horários e Preçário</a> ·
+					<a href="/contacto" class="theme-link">Contacto</a>
 				</p>
 			</div>
 		</footer>
+
 	</div>
 
+	<!-- JS -->
+	<script src="assets/plugins/popper.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<noscript>
+		<p class="text-center mt-3">Ativa o JavaScript para consultares as ementas.</p>
+	</noscript>
+
 </body>
 
 </html>
