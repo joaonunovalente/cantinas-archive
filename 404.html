@@ -24,9 +24,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap"
-		rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap"
+        rel="stylesheet" />
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/devdesk.css" />
@@ -36,153 +36,161 @@
 </head>
 
 <body>
-    <div class="page-container d-flex flex-column min-vh-100">
-        <header class="page-header-wrapper">
-				<div class="container">
-					<nav class="navbar navbar-expand-xl" role="navigation" aria-label="Main navigation">
-						<a class="site-logo-link me-2" href="/">
-							<img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-md" />
-						</a>
+    <div class="page-container" style="display:flex; flex-direction:column; min-height:100vh;">
+        <div class="content-wrap" style="flex-grow:1; padding-bottom:6rem;">
 
-						<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-							data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span></span>
-							<span></span>
-							<span></span>
-						</button>
-
-						<div class="collapse navbar-collapse ms-auto" id="navigation">
-							<ul class="navbar-nav ms-auto align-items-xl-center">
-								<li class="nav-item me-lg-4">
-									<a class="nav-link active" href="/">Hoje</a>
-								</li>
-								<li class="nav-item me-lg-4">
-									<a class="nav-link" href="/amanha">Amanhã</a>
-								</li>
-								<li class="nav-item me-lg-4">
-									<a class="nav-link" href="/semana">Semana</a>
-								</li>
-								<li class="nav-item me-lg-4">
-									<a class="nav-link" href="/horarios-precario">Horários e Preçário</a>
-								</li>
-								<li class="nav-item me-lg-4">
-									<a class="nav-link" href="/contacto">Contacto</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="https://mysas.ua.pt/" target="_blank"
-										rel="noopener noreferrer">
-										Portal MySAS
-										<img src="assets/img/hyperlink.png" alt="Ligação para o Portal MySas" width="14"
-											height="14" class="icon-invert ms-1 mb-1" />
-									</a>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-
-            <div class="page-heading-holder text-center py-5">
+            <header class="page-header-wrapper">
                 <div class="container">
-                    <h1 class="page-heading mt-5 mb-3">Página não encontrada</h1>
-                    <p class="lead mb-3">A página que procuras não existe no <strong>Cantinas.pt</strong>.</p>
-                </div>
-            </div>
-        </header>
+                    <nav class="navbar navbar-expand-xl" role="navigation" aria-label="Main navigation">
+                        <a class="site-logo-link me-2" href="/">
+                            <img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-md" />
+                        </a>
 
-        <main class="flex-grow-1">
-            <section class="theme-section py-5">
-                <div class="container px-4">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6">
-                            <h2 class="mb-4">Ups... o que fazer a seguir?</h2>
-                            <p class="mb-4">Segue as ligações abaixo para navegar pelo site:</p>
-                            <ul class="list-group shadow-sm">
-                                <li class="list-group-item d-flex align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-calendar-check me-3 text-primary" viewBox="0 0 16 16">
-                                        <path
-                                            d="M10.854 6.146a.5.5 0 0 0-.708.708L11.293 8l-1.147 1.146a.5.5 0 0 0 .708.708L12 8.707l1.146 1.147a.5.5 0 0 0 .708-.708L12.707 8l1.147-1.146a.5.5 0 0 0-.708-.708L12 7.293 10.854 6.146z" />
-                                        <path
-                                            d="M1 2a1 1 0 0 1 1-1h1v1a.5.5 0 0 0 1 0V1h6v1a.5.5 0 0 0 1 0V1h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm1 1v10h10V3H2z" />
-                                    </svg>
-                                    <a href="/" class="text-decoration-none">Hoje</a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse ms-auto" id="navigation">
+                            <ul class="navbar-nav ms-auto align-items-xl-center">
+                                <li class="nav-item me-lg-4">
+                                    <a class="nav-link active" href="/">Hoje</a>
                                 </li>
-                                <li class="list-group-item d-flex align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-calendar-event me-3 text-primary" viewBox="0 0 16 16">
-                                        <path d="M11 6h2v2h-2V6z" />
-                                        <path
-                                            d="M1 2a1 1 0 0 1 1-1h1v1a.5.5 0 0 0 1 0V1h6v1a.5.5 0 0 0 1 0V1h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm1 1v10h10V3H2z" />
-                                    </svg>
-                                    <a href="/amanha" class="text-decoration-none">Amanhã</a>
+                                <li class="nav-item me-lg-4">
+                                    <a class="nav-link" href="/amanha">Amanhã</a>
                                 </li>
-                                <li class="list-group-item d-flex align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-calendar-week me-3 text-primary" viewBox="0 0 16 16">
-                                        <path
-                                            d="M4 .5a.5.5 0 0 1 .5.5V2h6V1a.5.5 0 0 1 1 0v1h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V1a.5.5 0 0 1 .5-.5zM1 4v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                        <path d="M2.5 6h1v4h-1V6zm2 0h1v4h-1V6zm2 0h1v4h-1V6zm2 0h1v4h-1V6z" />
-                                    </svg>
-                                    <a href="/semana" class="text-decoration-none">Semana</a>
+                                <li class="nav-item me-lg-4">
+                                    <a class="nav-link" href="/semana">Semana</a>
                                 </li>
-                                <li class="list-group-item d-flex align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-clock-history me-3 text-primary" viewBox="0 0 16 16">
-                                        <path
-                                            d="M8.515 3.61a.5.5 0 0 0-.53-.434l-2.002.275a.5.5 0 1 0 .122.992l1.12-.154v2.314a.5.5 0 0 0 1 0V3.61z" />
-                                        <path
-                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14z" />
-                                    </svg>
-                                    <a href="/horarios-precario" class="text-decoration-none">Horários e Preçário</a>
+                                <li class="nav-item me-lg-4">
+                                    <a class="nav-link" href="/horarios-precario">Horários e Preçário</a>
                                 </li>
-                                <li class="list-group-item d-flex align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-envelope me-3 text-primary" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z" />
-                                        <path d="M.05 4.555L8 9.414l7.95-4.86A1 1 0 0 0 15 4H1a1 1 0 0 0-.95.555z" />
-                                    </svg>
-                                    <a href="/contacto" class="text-decoration-none">Contacto</a>
+                                <li class="nav-item me-lg-4">
+                                    <a class="nav-link" href="/contacto">Contacto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://mysas.ua.pt/" target="_blank"
+                                        rel="noopener noreferrer">
+                                        Portal MySAS
+                                        <img src="assets/img/hyperlink.png" alt="Ligação para o Portal MySas" width="14"
+                                            height="14" class="icon-invert ms-1 mb-1" />
+                                    </a>
                                 </li>
                             </ul>
                         </div>
+                    </nav>
+                </div>
+
+                <div class="page-heading-holder text-center py-5">
+                    <div class="container">
+                        <h1 class="page-heading mt-5 mb-3">Página não encontrada</h1>
+                        <p class="lead mb-3">A página que procuras não existe no <strong>Cantinas.pt</strong>.</p>
                     </div>
                 </div>
-            </section>
-        </main>
+            </header>
 
-		<!-- Footer -->
-		<footer class="footer py-1 border-top">
-			<div class="container text-center text-light">
-				<a class="site-logo-link d-inline-flex justify-content-center mt-3 mb-2" href="/">
-					<img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-sm" />
-				</a>
+            <main>
+                <section class="theme-section py-5">
+                    <div class="container px-4">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <h2 class="mb-4">Ups... o que fazer a seguir?</h2>
+                                <p class="mb-4">Segue as ligações abaixo para navegar pelo site:</p>
+                                <ul class="list-group shadow-sm">
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-calendar-check me-3 text-primary"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M10.854 6.146a.5.5 0 0 0-.708.708L11.293 8l-1.147 1.146a.5.5 0 0 0 .708.708L12 8.707l1.146 1.147a.5.5 0 0 0 .708-.708L12.707 8l1.147-1.146a.5.5 0 0 0-.708-.708L12 7.293 10.854 6.146z" />
+                                            <path
+                                                d="M1 2a1 1 0 0 1 1-1h1v1a.5.5 0 0 0 1 0V1h6v1a.5.5 0 0 0 1 0V1h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm1 1v10h10V3H2z" />
+                                        </svg>
+                                        <a href="/" class="text-decoration-none">Hoje</a>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-calendar-event me-3 text-primary"
+                                            viewBox="0 0 16 16">
+                                            <path d="M11 6h2v2h-2V6z" />
+                                            <path
+                                                d="M1 2a1 1 0 0 1 1-1h1v1a.5.5 0 0 0 1 0V1h6v1a.5.5 0 0 0 1 0V1h1a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm1 1v10h10V3H2z" />
+                                        </svg>
+                                        <a href="/amanha" class="text-decoration-none">Amanhã</a>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-calendar-week me-3 text-primary"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 .5a.5.5 0 0 1 .5.5V2h6V1a.5.5 0 0 1 1 0v1h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V1a.5.5 0 0 1 .5-.5zM1 4v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                            <path d="M2.5 6h1v4h-1V6zm2 0h1v4h-1V6zm2 0h1v4h-1V6zm2 0h1v4h-1V6z" />
+                                        </svg>
+                                        <a href="/semana" class="text-decoration-none">Semana</a>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-clock-history me-3 text-primary"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8.515 3.61a.5.5 0 0 0-.53-.434l-2.002.275a.5.5 0 1 0 .122.992l1.12-.154v2.314a.5.5 0 0 0 1 0V3.61z" />
+                                            <path
+                                                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14z" />
+                                        </svg>
+                                        <a href="/horarios-precario" class="text-decoration-none">Horários e
+                                            Preçário</a>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-envelope me-3 text-primary"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4z" />
+                                            <path d="M.05 4.555L8 9.414l7.95-4.86A1 1 0 0 0 15 4H1a1 1 0 0 0-.95.555z" />
+                                        </svg>
+                                        <a href="/contacto" class="text-decoration-none">Contacto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
 
-				<nav aria-label="Footer navigation" class="footer-links">
-					<p class="mb-3">
-						<a href="/">Hoje</a> ·
-						<a href="/amanha">Amanhã</a> ·
-						<a href="/semana">Semana</a> ·
-						<a href="/horarios-precario">Horários e Preçário</a> ·
-						<a href="/contacto">Contacto</a>
-					</p>
-				</nav>
-			</div>
-		</footer>
-	</div>
+        </div>
 
-	<!-- JS -->
-	<script src="assets/plugins/popper.min.js"></script>
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/today.js"></script>
+        <footer class="footer py-1 border-top">
+            <div class="container text-center text-light">
+                <a class="site-logo-link d-inline-flex justify-content-center mt-3 mb-2" href="/">
+                    <img src="assets/img/logo/logo-color.svg" alt="Cantinas.pt logo" class="logo-sm" />
+                </a>
 
-	<noscript>
-		<p class="text-center mt-3">
-			Ativa o JavaScript para consultares as ementas.
-		</p>
-	</noscript>
+                <nav aria-label="Footer navigation" class="footer-links">
+                    <p class="mb-3">
+                        <a href="/">Hoje</a> ·
+                        <a href="/amanha">Amanhã</a> ·
+                        <a href="/semana">Semana</a> ·
+                        <a href="/horarios-precario">Horários e Preçário</a> ·
+                        <a href="/contacto">Contacto</a>
+                    </p>
+                </nav>
+            </div>
+        </footer>
+    </div>
 
+    <!-- JS -->
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/today.js"></script>
+
+    <noscript>
+        <p class="text-center mt-3">
+            Ativa o JavaScript para consultares as ementas.
+        </p>
+    </noscript>
 </body>
 
 </html>
