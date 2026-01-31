@@ -13,10 +13,44 @@ export default {
 
     const url = new URL(request.url);
     const date = url.searchParams.get("date");
+    const today = todayISODate();
 
     if (!date) {
-      return withCors(new Response("Missing date parameter", { status: 400 }));
+      return withCors(
+        new Response(
+          `Parâmetro "date" em falta. Usa: ?date=yyyy-mm-dd\nExemplo: ?date=${today}`,
+          {
+            status: 400,
+            headers: { "Content-Type": "text/plain; charset=utf-8" }
+          }
+        )
+      );
     }
+
+    if (date === "yyyy-mm-dd") {
+      return withCors(
+        new Response(
+          `Substitui "yyyy-mm-dd" pela data real no formato correto. Exemplo: ?date=${today}`,
+          {
+            status: 400,
+            headers: { "Content-Type": "text/plain; charset=utf-8" }
+          }
+        )
+      );
+    }
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return withCors(
+        new Response(
+          `Formato inválido. Usa: ?date=yyyy-mm-dd\nExemplo: ?date=${today}`,
+          {
+            status: 400,
+            headers: { "Content-Type": "text/plain; charset=utf-8" }
+          }
+        )
+      );
+    }
+
 
     const cache = caches.default;
     const cacheKey = new Request(`https://cache.cantinas/${date}`);
@@ -26,8 +60,13 @@ export default {
       return withCors(cached);
     }
 
+    // API da UA exige datetime completo
+    const isoDate = `${date}T00:00:00`;
+
     const upstreamUrl =
-      `https://wso2-gw.ua.pt/mysas_mysas/v1/Refeicoes/GetAgendaMenusEntreDatas?inicio=${date}&fim=${date}`;
+      `https://wso2-gw.ua.pt/mysas_mysas/v1/Refeicoes/GetAgendaMenusEntreDatas` +
+      `?inicio=${encodeURIComponent(isoDate)}` +
+      `&fim=${encodeURIComponent(isoDate)}`;
 
     const upstream = await fetch(upstreamUrl, {
       headers: { Accept: "application/json" }
@@ -41,11 +80,13 @@ export default {
 
     const body = await upstream.text();
 
-    // Validate JSON once, fail fast if garbage
+    // Falha cedo se vier lixo
     try {
       JSON.parse(body);
     } catch {
-      return withCors(new Response("Invalid JSON from upstream", { status: 502 }));
+      return withCors(
+        new Response("Invalid JSON from upstream", { status: 502 })
+      );
     }
 
     const response = new Response(body, {
@@ -60,6 +101,10 @@ export default {
     return withCors(response);
   }
 };
+
+function todayISODate() {
+  return new Date().toISOString().slice(0, 10);
+}
 
 function corsHeaders() {
   return {
