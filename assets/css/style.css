@@ -73,12 +73,10 @@
   text-decoration: underline;
 }
 
-/* Show footer links normally on desktop */
 .footer-links {
   display: block;
 }
 
-/* On mobile, adjust footer layout */
 @media (max-width: 414px) {
   .footer-links p {
     font-size: small;
@@ -105,4 +103,11 @@
 .table-schedule {
   width: 100%;
   table-layout: fixed;
+}
+
+@media (max-width: 767) {
+  .lead {
+    font-size:large;
+
+  }
 }
