@@ -108,8 +108,13 @@
 @media (max-width: 767px) {
   .lead {
     font-size: large;
-
   }
+
+  
+}
+
+.canteen-heading {
+  font-size: 40px;
 }
 
 
@@ -138,3 +143,27 @@
     width: 38%;
   }
 }
+
+
+/* .page-heading-holder {
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.page-heading-holder .page-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.page-heading-holder .page-heading-sub {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 767.98px) {
+
+  .page-heading-holder .canteen-heading {
+    font-size: 2.25rem;
+  }
+} */
