@@ -110,7 +110,12 @@
     font-size: large;
 
   }
+
+  .canteen-heading {
+    text-align: center;
+  }
 }
+
 
 .mobile-col1 {
   width: 50%;
