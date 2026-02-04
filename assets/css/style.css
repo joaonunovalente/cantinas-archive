@@ -143,3 +143,9 @@
     width: 38%;
   }
 }
+
+@media (max-width: 767px) {
+  .heading-mobile {
+    display: none;
+  }
+}
