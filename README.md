@@ -1,7 +1,9 @@
 <div align="center">
+<br>
 
   ![logo](assets/img/logo/logo-color.svg)
-  
+
+<br>
 </div>
 
 # Cantinas.pt
