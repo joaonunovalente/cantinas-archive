@@ -1,3 +1,9 @@
+<div align="center">
+
+  ![logo](assets/img/logo/logo-color.svg)
+  
+</div>
+
 # Cantinas.pt
 
 **Cantinas.pt** is a free-access web platform that aggregates and displays the menus from the University of Aveiro’s canteens. It retrieves real-time data directly from the university’s official API.
@@ -28,3 +34,5 @@ On page load, the frontend script requests menu data for the current day via the
 For feedback or questions, please reach out at:
  
 - **contacto@cantinas.pt**
+
+</div>
