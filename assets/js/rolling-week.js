@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		"tab-restaurante": "Restaurante Universitário"
 	};
 
-	// IMPORTANTE: alinhado com Date.getDay()
 	const weekdayNames = [
 		"Domingo",
 		"Segunda-feira",
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		return d;
 	}
 
-	// 👇 SEM Hoje / Amanhã
 	function getDayLabel(date) {
 		return weekdayNames[date.getDay()];
 	}
@@ -68,11 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function normalizeString(str) {
-		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+		return str
+			.normalize("NFD")
+			.replace(/[\u0300-\u036f]/g, "")
+			.toLowerCase()
+			.trim();
 	}
 
 	function generateMenuHTML(items) {
-		if (!items || items.length === 0) return "<p>Encontra-se encerrado.</p>";
+		if (!items || items.length === 0) return "";
 
 		let html = "";
 		const soups = new Set();
@@ -107,7 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function loadWeek() {
 
-		document.querySelectorAll(".day-block").forEach((block, index) => {
+		const blocks = [...document.querySelectorAll(".day-block")];
+
+		blocks.forEach(b => (b.style.display = "none"));
+
+		blocks.forEach((block, index) => {
 
 			const lunchEl = block.querySelector(".lunch");
 			const dinnerEl = block.querySelector(".dinner");
@@ -132,11 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					stopLoadingAnimation(lunchEl);
 					stopLoadingAnimation(dinnerEl);
 
-					if (!meals.length) {
-						lunchEl.innerHTML = "<p>Encontra-se encerrado.</p>";
-						dinnerEl.innerHTML = "<p>Encontra-se encerrado.</p>";
-						return;
-					}
+					// 🔑 Só mostra o dia se houver dados
+					if (!meals.length) return;
+
+					block.style.display = "";
 
 					const grouped = groupByPeriod(meals);
 
@@ -151,8 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				.catch(() => {
 					stopLoadingAnimation(lunchEl);
 					stopLoadingAnimation(dinnerEl);
-					lunchEl.innerHTML = "<p>Erro ao carregar.</p>";
-					dinnerEl.innerHTML = "<p>Erro ao carregar.</p>";
 				});
 		});
 	}
