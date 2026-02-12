@@ -95,11 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			let label = "Prato";
 			const n = item.Nome.toUpperCase();
+			let isOpcao = n.includes("(OPÇÃO)");
+
 
 			if (n.includes("CARNE")) label = "Carne";
 			else if (n.includes("PEIXE")) label = "Peixe";
 			else if (n.includes("DIETA")) label = "Dieta";
 			else if (n.includes("VEGETARIANO")) label = "Vegetariano";
+
+			if (isOpcao) label += " (opção)";
 
 			html += `<p><strong>${label}</strong>: ${pratos.map(p => capitalize(p.Nome)).join("; ")}</p>`;
 		});
@@ -138,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					stopLoadingAnimation(lunchEl);
 					stopLoadingAnimation(dinnerEl);
 
-					// 🔑 Só mostra o dia se houver dados
 					if (!meals.length) return;
 
 					block.style.display = "";
