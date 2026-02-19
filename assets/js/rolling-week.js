@@ -1,174 +1,163 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let selectedCanteen = "Santiago";
 
-	let selectedCanteen = "Santiago";
+  const canteenMap = {
+    "tab-santiago": "Santiago",
+    "tab-crasto": "Crasto",
+    "tab-grelhados": "Grelhados",
+    "tab-estga": "ESTGA",
+    "tab-restaurante": "Restaurante Universitário",
+  };
 
-	const canteenMap = {
-		"tab-santiago": "Santiago",
-		"tab-crasto": "Crasto",
-		"tab-grelhados": "Grelhados",
-		"tab-estga": "ESTGA",
-		"tab-restaurante": "Restaurante Universitário"
-	};
+  const weekdayNames = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+  ];
 
-	const weekdayNames = [
-		"Domingo",
-		"Segunda-feira",
-		"Terça-feira",
-		"Quarta-feira",
-		"Quinta-feira",
-		"Sexta-feira",
-		"Sábado"
-	];
+  function formatDate(date) {
+    return date.toISOString().split("T")[0];
+  }
 
-	const loadingIntervals = new Map();
+  function getRollingDate(offset) {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + offset);
+    return d;
+  }
 
-	function startLoadingAnimation(el) {
-		if (loadingIntervals.has(el)) return;
-		let dots = 1;
-		const i = setInterval(() => {
-			el.textContent = "A carregar a ementa" + ".".repeat(dots);
-			dots = (dots % 3) + 1;
-		}, 800);
-		loadingIntervals.set(el, i);
-	}
+  function getDayLabel(date) {
+    return weekdayNames[date.getDay()];
+  }
 
-	function stopLoadingAnimation(el) {
-		if (!loadingIntervals.has(el)) return;
-		clearInterval(loadingIntervals.get(el));
-		loadingIntervals.delete(el);
-	}
+  function groupByPeriod(data) {
+    return data.reduce((acc, item) => {
+      if (!acc[item.Periodo]) acc[item.Periodo] = [];
+      acc[item.Periodo].push(item);
+      return acc;
+    }, {});
+  }
 
-	function formatDate(date) {
-		return date.toISOString().split("T")[0];
-	}
+  function capitalize(str) {
+    return str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
+  }
 
-	function getRollingDate(offset) {
-		const d = new Date();
-		d.setHours(0, 0, 0, 0);
-		d.setDate(d.getDate() + offset);
-		return d;
-	}
+  function normalizeString(str) {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
 
-	function getDayLabel(date) {
-		return weekdayNames[date.getDay()];
-	}
+  function generateMenuHTML(items) {
+    if (!items || items.length === 0) return "";
 
-	function groupByPeriod(data) {
-		return data.reduce((acc, item) => {
-			if (!acc[item.Periodo]) acc[item.Periodo] = [];
-			acc[item.Periodo].push(item);
-			return acc;
-		}, {});
-	}
+    let html = "";
+    const soups = new Set();
 
-	function capitalize(str) {
-		return str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : "";
-	}
+    items.forEach((i) =>
+      i.Componentes.forEach((c) => {
+        if (c.TipoString === "Sopa") soups.add(capitalize(c.Nome));
+      }),
+    );
 
-	function normalizeString(str) {
-		return str
-			.normalize("NFD")
-			.replace(/[\u0300-\u036f]/g, "")
-			.toLowerCase()
-			.trim();
-	}
+    if (soups.size) {
+      html += `<p><strong>Sopa</strong>: ${[...soups].join("; ")}</p>`;
+    }
 
-	function generateMenuHTML(items) {
-		if (!items || items.length === 0) return "";
+    items.forEach((item) => {
+      const pratos = item.Componentes.filter((c) => c.TipoString === "Prato");
+      if (!pratos.length) return;
 
-		let html = "";
-		const soups = new Set();
+      let label = "Prato";
+      const n = item.Nome.toUpperCase();
+      let isOpcao = n.includes("(OPÇÃO)");
 
-		items.forEach(i =>
-			i.Componentes.forEach(c => {
-				if (c.TipoString === "Sopa") soups.add(capitalize(c.Nome));
-			})
-		);
+      if (n.includes("CARNE")) label = "Carne";
+      else if (n.includes("PEIXE")) label = "Peixe";
+      else if (n.includes("DIETA")) label = "Dieta";
+      else if (n.includes("VEGETARIANO")) label = "Vegetariano";
 
-		if (soups.size) {
-			html += `<p><strong>Sopa</strong>: ${[...soups].join("; ")}</p>`;
-		}
+      if (isOpcao) label += " (opção)";
 
-		items.forEach(item => {
-			const pratos = item.Componentes.filter(c => c.TipoString === "Prato");
-			if (!pratos.length) return;
+      html += `<p><strong>${label}</strong>: ${pratos.map((p) => capitalize(p.Nome)).join("; ")}</p>`;
+    });
 
-			let label = "Prato";
-			const n = item.Nome.toUpperCase();
-			let isOpcao = n.includes("(OPÇÃO)");
+    return html;
+  }
 
+  async function loadWeek() {
+    const blocks = [...document.querySelectorAll(".day-block")];
+    const normalizedSelected = normalizeString(selectedCanteen);
 
-			if (n.includes("CARNE")) label = "Carne";
-			else if (n.includes("PEIXE")) label = "Peixe";
-			else if (n.includes("DIETA")) label = "Dieta";
-			else if (n.includes("VEGETARIANO")) label = "Vegetariano";
+    let offset = 0;
+    let stopLoading = false;
 
-			if (isOpcao) label += " (opção)";
+    for (let block of blocks) {
+      if (stopLoading) {
+        block.style.display = "none";
+        continue;
+      }
 
-			html += `<p><strong>${label}</strong>: ${pratos.map(p => capitalize(p.Nome)).join("; ")}</p>`;
-		});
+      const lunchEl = block.querySelector(".lunch");
+      const dinnerEl = block.querySelector(".dinner");
+      const titleEl = block.querySelector(".section-title");
 
-		return html;
-	}
+      const date = getRollingDate(offset);
+      titleEl.textContent = getDayLabel(date);
 
-	function loadWeek() {
+      try {
+        const response = await fetch(
+          `https://api.cantinas.pt/?date=${formatDate(date)}`,
+        );
+        const data = await response.json();
 
-		const blocks = [...document.querySelectorAll(".day-block")];
+        // Se não existir qualquer ementa para nenhuma cantina → parar tudo
+        if (!data || data.length === 0) {
+          stopLoading = true;
+          block.style.display = "none";
+          continue;
+        }
 
-		blocks.forEach(b => (b.style.display = "none"));
+        block.style.display = "";
 
-		blocks.forEach((block, index) => {
+        // Filtrar refeições da cantina selecionada
+        const meals = data.filter((m) =>
+          m.Refeitorios.some((r) => normalizeString(r) === normalizedSelected),
+        );
 
-			const lunchEl = block.querySelector(".lunch");
-			const dinnerEl = block.querySelector(".dinner");
-			const titleEl = block.querySelector(".section-title");
+        const grouped = groupByPeriod(meals);
 
-			const date = getRollingDate(index);
-			titleEl.textContent = getDayLabel(date);
+        // Almoço
+        lunchEl.innerHTML = grouped["Almoço"]
+          ? generateMenuHTML(grouped["Almoço"])
+          : "<p>Encontra-se encerrado.</p>";
 
-			startLoadingAnimation(lunchEl);
-			startLoadingAnimation(dinnerEl);
+        // Jantar
+        dinnerEl.innerHTML = grouped["Jantar"]
+          ? generateMenuHTML(grouped["Jantar"])
+          : "<p>Encontra-se encerrado.</p>";
+      } catch (err) {
+        block.style.display = "none";
+        stopLoading = true;
+      }
 
-			fetch(`https://api.cantinas.pt/?date=${formatDate(date)}`)
-				.then(r => r.json())
-				.then(data => {
+      offset++;
+    }
+  }
 
-					const normalizedSelected = normalizeString(selectedCanteen);
+  // Mudança de separador
+  document.querySelectorAll('[data-bs-toggle="pill"]').forEach((tab) => {
+    tab.addEventListener("shown.bs.tab", (e) => {
+      selectedCanteen = canteenMap[e.target.id] || "Santiago";
+      loadWeek();
+    });
+  });
 
-					const meals = data.filter(m =>
-						m.Refeitorios.some(r => normalizeString(r) === normalizedSelected)
-					);
-
-					stopLoadingAnimation(lunchEl);
-					stopLoadingAnimation(dinnerEl);
-
-					if (!meals.length) return;
-
-					block.style.display = "";
-
-					const grouped = groupByPeriod(meals);
-
-					lunchEl.innerHTML = grouped["Almoço"]
-						? generateMenuHTML(grouped["Almoço"])
-						: "<p>Encontra-se encerrado.</p>";
-
-					dinnerEl.innerHTML = grouped["Jantar"]
-						? generateMenuHTML(grouped["Jantar"])
-						: "<p>Encontra-se encerrado.</p>";
-				})
-				.catch(() => {
-					stopLoadingAnimation(lunchEl);
-					stopLoadingAnimation(dinnerEl);
-				});
-		});
-	}
-
-	document.querySelectorAll('[data-bs-toggle="pill"]').forEach(tab => {
-		tab.addEventListener("shown.bs.tab", e => {
-			selectedCanteen = canteenMap[e.target.id] || "Santiago";
-			loadWeek();
-		});
-	});
-
-	loadWeek();
+  loadWeek();
 });
