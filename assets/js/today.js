@@ -3,17 +3,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const url = `https://api.cantinas.pt/?date=${today}`;
 
   const canteenMap = {
-    "Santiago": "Santiago",
-    "ESTGA": "ESTGA",
-    "Crasto": "Crasto",
+    Santiago: "Santiago",
+    ESTGA: "ESTGA",
+    Crasto: "Crasto",
     "Restaurante Universitário": "Restaurante Universitário",
-    "Grelhados": "Grelhados"
+    Grelhados: "Grelhados",
   };
 
   // Animate "loading..." dots
   const loadingIntervals = new Map();
 
-  document.querySelectorAll(".item-desc").forEach(el => {
+  document.querySelectorAll(".item-desc").forEach((el) => {
     if (el.textContent.includes("A carregar a ementa")) {
       let dots = 1;
       const interval = setInterval(() => {
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Collect soups
     const allSoups = [];
-    Object.values(groupedByNome).forEach(componentes => {
-      componentes.forEach(c => {
+    Object.values(groupedByNome).forEach((componentes) => {
+      componentes.forEach((c) => {
         if (c.TipoString === "Sopa") {
           const soupName = capitalizeFirstLetter(c.Nome);
           if (!allSoups.includes(soupName)) {
@@ -88,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isOpcao) typeLabel += " (opção)";
 
-      const pratos = componentes.filter(c => c.TipoString === "Prato");
+      const pratos = componentes.filter((c) => c.TipoString === "Prato");
       if (pratos.length > 0) {
-        html += `<p><strong>${typeLabel}</strong>: ${pratos.map(p => capitalizeFirstLetter(p.Nome)).join("; ")}</p>`;
+        html += `<p><strong>${typeLabel}</strong>: ${pratos.map((p) => capitalizeFirstLetter(p.Nome)).join("; ")}</p>`;
       }
     });
 
@@ -109,10 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetch(url)
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       if (!Array.isArray(data) || data.length === 0) {
-        document.querySelectorAll(".item-desc").forEach(el => {
+        document.querySelectorAll(".item-desc").forEach((el) => {
           stopLoadingAnimation(el);
           el.textContent = "Não existem dados disponíveis.";
         });
@@ -121,21 +121,32 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       Object.entries(canteenMap).forEach(([tabName, refeitorio]) => {
-        const canteenMeals = data.filter(entry => entry.Refeitorios.includes(refeitorio));
+        const canteenMeals = data.filter((entry) =>
+          entry.Refeitorios.includes(refeitorio),
+        );
 
         if (canteenMeals.length === 0) {
-          const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+          const paneId =
+            tabName === "Restaurante Universitário"
+              ? "restaurante"
+              : tabName.toLowerCase();
 
-          const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
-          const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
+          const lunchDiv = document.querySelector(
+            `#pane-${paneId} .col-md-6:first-child .item-desc`,
+          );
+          const dinnerDiv = document.querySelector(
+            `#pane-${paneId} .col-md-6:last-child .item-desc`,
+          );
 
           if (lunchDiv) {
             stopLoadingAnimation(lunchDiv);
-            lunchDiv.innerHTML = "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
+            lunchDiv.innerHTML =
+              "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
           }
           if (dinnerDiv) {
             stopLoadingAnimation(dinnerDiv);
-            dinnerDiv.innerHTML = "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
+            dinnerDiv.innerHTML =
+              "<p class='item-desc mb-0'>Encontra-se encerrado.</p>";
           }
 
           return;
@@ -143,10 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const grouped = groupByPeriod(canteenMeals);
 
-        const paneId = (tabName === "Restaurante Universitário") ? "restaurante" : tabName.toLowerCase();
+        const paneId =
+          tabName === "Restaurante Universitário"
+            ? "restaurante"
+            : tabName.toLowerCase();
 
-        const lunchDiv = document.querySelector(`#pane-${paneId} .col-md-6:first-child .item-desc`);
-        const dinnerDiv = document.querySelector(`#pane-${paneId} .col-md-6:last-child .item-desc`);
+        const lunchDiv = document.querySelector(
+          `#pane-${paneId} .col-md-6:first-child .item-desc`,
+        );
+        const dinnerDiv = document.querySelector(
+          `#pane-${paneId} .col-md-6:last-child .item-desc`,
+        );
 
         if (lunchDiv) {
           stopLoadingAnimation(lunchDiv);
@@ -159,9 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Erro ao carregar as ementas:", err);
-      document.querySelectorAll(".item-desc").forEach(el => {
+      document.querySelectorAll(".item-desc").forEach((el) => {
         stopLoadingAnimation(el);
         // el.textContent = "Erro ao carregar as ementas.";
         el.innerHTML = fallbackMenuHTML();
