@@ -20,11 +20,9 @@ It retrieves real-time data directly from the university’s official API.
 
 ## Project Summary
 
-The platform was designed for **speed and reliability**, using a **Cloudflare Worker** as an intermediary layer for API requests.  
-This architecture reduces latency and ensures near-instant load times even during peak traffic.
+The platform was designed for **speed and reliability**, using a **Cloudflare Worker** as an intermediary layer for API requests. This architecture reduces latency and ensures near-instant load times even during peak traffic.
 
-On page load, the frontend script requests menu data for the current day via the Cloudflare Worker API endpoint.  
-The data, structured by canteen and meal period, is parsed and dynamically injected into the page, showing the categorized dishes.
+On page load, the frontend script requests menu data for the current day via the Cloudflare Worker API endpoint. The data, structured by canteen and meal period, is parsed and dynamically injected into the page, showing the categorized dishes.
 
 ## Technical Overview
 
