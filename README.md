@@ -6,35 +6,43 @@
 <br>
 </div>
 
-# Cantinas.pt
+# Cantinas.pt - Archived
 
-**Cantinas.pt** is a free-access web platform that aggregates and displays the menus from the University of Aveiro’s canteens. It retrieves real-time data directly from the university’s official API.
+**This project is archived and no longer maintained.**  
+The archived version is available at: [arquivo.cantinas.pt](https://arquivo.cantinas.pt)
+
+---
+
+## About the Project
+
+**Cantinas.pt** is a free-access web platform that aggregates and displays menus from the :contentReference[oaicite:0]{index=0} canteens.  
+It retrieves real-time data directly from the university’s official API.
 
 ## Project Summary
 
-Designed for speed and reliability, **Cantinas.pt** uses a Cloudflare Worker as an intermediary layer for API requests. This architecture reduces latency and guarantees near-instant load times even during peak traffic.
+The platform was designed for **speed and reliability**, using a **Cloudflare Worker** as an intermediary layer for API requests.  
+This architecture reduces latency and ensures near-instant load times even during peak traffic.
 
-On page load, the frontend script requests menu data for the current day via the Cloudflare Worker API endpoint. The data, structured by canteen and meal period, is parsed and dynamically injected into the page, showing the categorized dishes.
+On page load, the frontend script requests menu data for the current day via the Cloudflare Worker API endpoint.  
+The data, structured by canteen and meal period, is parsed and dynamically injected into the page, showing the categorized dishes.
 
 ## Technical Overview
 
 - **Frontend:**  
-  - Adapts [DevDesk](https://github.com/xriley/DevDesk-Theme) theme
+  - Based on the [DevDesk](https://github.com/xriley/DevDesk-Theme) theme
 
 - **Middleware:**  
   - Cloudflare Worker proxying API requests  
-  - Caches and reduces API response latency  
+  - Caching to reduce response latency  
 
 - **Data Source:**  
   - University of Aveiro official canteens API  
 
 - **Hosting:**  
-  - Hosted and served via Cloudflare
+  - Served via Cloudflare
 
 ## Contact
 
-For feedback or questions, please reach out at:
- 
-- **contacto@cantinas.pt**
+For questions or feedback, contact:
 
-</div>
+- **Email:** contacto@cantinas.pt
