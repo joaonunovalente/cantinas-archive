@@ -15,7 +15,7 @@ The archived version is available at: [arquivo.cantinas.pt](https://arquivo.cant
 
 ## About the Project
 
-**Cantinas.pt** is a free-access web platform that aggregates and displays menus from the :contentReference[oaicite:0]{index=0} canteens.  
+**Cantinas.pt** is a free-access web platform that aggregates and displays menus from the canteens.  
 It retrieves real-time data directly from the university’s official API.
 
 ## Project Summary
